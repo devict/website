@@ -28,7 +28,7 @@ export default function App({ Component, route }: AppProps) {
         {/* <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#eb7e32" /> */}
         <link rel="shortcut icon" href="/favicon.ico" />
 
-        <title>devICT: Get Involved</title>
+        <title>Contribute &middot; devICT</title>
       </head>
       <body>
         <div class="px-4 py-8 mx-auto">
