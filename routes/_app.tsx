@@ -1,5 +1,15 @@
 import { AppProps } from "$fresh/server.ts";
-import Header from "../components/Header.tsx";
+import Header from "../islands/Header.tsx";
+
+const nav = [
+  { name: "About", href: "https://devict.org/about" },
+  { name: "Conduct", href: "https://devict.org/conduct" },
+  { name: "Events", href: "https://meetup.com/devict" },
+  { name: "Chat", href: "https://slack.devict.org" },
+  { name: "Jobs", href: "https://jobs.devict.org" },
+  { name: "Support", href: "https://devict.org/support" },
+  { name: "Contribute", href: "/contribute" },
+];
 
 export default function App({ Component, route }: AppProps) {
   return (
@@ -30,10 +40,10 @@ export default function App({ Component, route }: AppProps) {
 
         <title>Contribute &middot; devICT</title>
       </head>
-      <body>
+      <body class="bg-[url('/cream_pixels.png')] bg-repeat">
         <div class="px-4 py-8 mx-auto">
           <div class="max-w-screen-md mx-auto flex flex-col">
-            <Header active={route} />
+            <Header active={route} nav={nav} />
             <Component />
           </div>
         </div>
