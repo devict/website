@@ -9,7 +9,7 @@ type Props = {
 export default function Header({ active, nav }: Props) {
   const [isDropdownOpen, setDropdownOpen] = useState(false);
   return (
-    <div class="bg-white w-full max-w-screen-lg p-6 flex flex-col md:flex-row gap-4 mb-8 rounded-lg border-slate-200 border-1">
+    <div class="bg-white w-full p-6 flex flex-col md:flex-row gap-4 mb-8 rounded-lg border-slate-200 border-1">
       <div class="flex items-center justify-between flex-1">
         <img src="/devict-logo.svg" class="h-12" alt="devICT logo" />
         <button

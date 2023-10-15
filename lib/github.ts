@@ -1,25 +1,15 @@
 import { z } from "zod";
 
-const DEVICT_REPOS: string[] = [
-  "devict/job-board",
-  "devict/devict.org",
-  "devict/keeper",
-  "devict/hacktoberfest",
-  "devict/help",
-];
-
-const COMMUNITY_REPOS: string[] = [];
-
-const REPOS = [...DEVICT_REPOS, ...COMMUNITY_REPOS];
-
-export async function getHelpWantedIssues(token: string) {
+export async function getHelpWantedIssues(
+  { token, repos }: { token: string; repos: string[] },
+) {
   /**
    * TODO: Assuming there won't be more than 100 help-wanted issues on
    * any of the defined repos. Handle pagination!
    */
   const PER_PAGE = 100;
   const allRepoIssues = await Promise.all(
-    REPOS.map((repo) =>
+    repos.map((repo) =>
       fetchIssues({ token, repo, perPage: PER_PAGE, page: 1 })
     ),
   );
