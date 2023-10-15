@@ -8,7 +8,7 @@ const nav = [
   { name: "Chat", href: "https://slack.devict.org" },
   { name: "Jobs", href: "https://jobs.devict.org" },
   { name: "Support", href: "https://devict.org/support" },
-  { name: "Contribute", href: "/contribute" },
+  { name: "Contribute", href: "/" },
 ];
 
 export default function App({ Component, route }: AppProps) {
