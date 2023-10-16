@@ -4,7 +4,6 @@ import Header from "../islands/Header.tsx";
 const nav = [
   { name: "Home", href: "/" },
   { name: "Projects", href: "/projects" },
-  { name: "Surveys", href: "/surveys" },
   { name: "Speak", href: "/speak" },
   { name: "Donate", href: "https://devict.org/support" },
 ];
@@ -40,7 +39,7 @@ export default function App({ Component, route }: AppProps) {
       </head>
       <body class="bg-[url('/cream_pixels.png')] bg-repeat">
         <Header active={route} nav={nav} />
-        <div class="px-4 pb-8 mx-auto">
+        <div class="pb-8 mx-auto">
           <div class="max-w-screen-xl mx-auto flex flex-col">
             <Component />
           </div>
