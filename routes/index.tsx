@@ -1,5 +1,6 @@
 import { assert } from "$std/_util/asserts.ts";
 import { JSX } from "preact";
+import Card from '../islands/Card.tsx'
 
 export default function Home() {
   const ghToken = Deno.env.get("GITHUB_TOKEN");
@@ -101,20 +102,6 @@ export default function Home() {
           },
         ].map((card) => <Card {...card} />)}
       </div>
-    </div>
-  );
-}
-
-type CardProps = {
-  title: string;
-  content: string | JSX.Element;
-};
-
-function Card({ title, content }: CardProps) {
-  return (
-    <div class="bg-white rounded-lg shadow-lg p-6">
-      <h3 class="text-xl font-medium mb-2">{title}</h3>
-      <p class="text-md mb-2">{content}</p>
     </div>
   );
 }
