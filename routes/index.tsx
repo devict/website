@@ -74,7 +74,7 @@ export default function Home() {
                 find an issue that interests you, and jump right in!
               </>
             ),
-            link: '/project',
+            link: '/projects',
             link_text: 'Get Coding'
           },
           {
