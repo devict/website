@@ -65,6 +65,8 @@ export default async function Home() {
                 asking questions, and help others.
               </>
             ),
+            link: 'https://slack.devict.org/',
+            link_text: 'Sign Up'
           },
           {
             title: 'Contribute with Code',
@@ -77,6 +79,8 @@ export default async function Home() {
                 , find an issue that interests you, and jump right in!
               </>
             ),
+            link: '/projects',
+            link_text: 'Get Coding'
           },
           {
             title: 'Contribute without Code',
@@ -90,6 +94,8 @@ export default async function Home() {
                 , or contribute your ideas by filing new ones.
               </>
             ),
+            link: "/projects",
+            link_text: "Contribute"
           },
           {
             title: `Give a Talk or Workshop`,
@@ -121,21 +127,28 @@ export default async function Home() {
 }
 
 type CardProps = {
-  title: string
-  content: string | JSX.Element
-}
+  title: string;
+  content: string | JSX.Element;
+  link: string;
+  link_text: string;
+};
+
 
 type ContributorsProps = {
   fullName: string
   imageUrl: string
   profileUrl: string
 }
-
-function Card({ title, content }: CardProps) {
+function Card({ title, content, link, link_text }: CardProps) {
   return (
-    <div class="bg-white rounded-lg shadow-lg p-6">
-      <h3 class="text-xl font-medium mb-2">{title}</h3>
-      <p class="text-md mb-2">{content}</p>
+    <div class="bg-white rounded-lg shadow-lg p-6 flex flex-col justify-between items-start">
+      <div>
+        <h3 class="text-xl font-medium mb-2">{title}</h3>
+        <p class="text-md">{content}</p>
+      </div>
+      {link && (
+        <a class='bg-ict-orange font-bold mt-4 px-4 py-2 text-white w-auto' href={link}>{link_text ? (link_text) : "Learn more"}</a>
+      )}
     </div>
   )
 }

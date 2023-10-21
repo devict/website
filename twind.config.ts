@@ -5,11 +5,13 @@ import presetAutoprefix from "@twind/preset-autoprefix";
 export default {
   ...defineConfig({
     presets: [presetTailwind() as Preset, presetAutoprefix()],
-    // theme: {
-    //   extend: {
-    //     colors: {},
-    //   },
-    // },
+    theme: {
+      extend: {
+        colors: {
+          'ict-orange': '#eb7f32'
+        },
+      },
+    },
   }),
   selfURL: import.meta.url,
 };
