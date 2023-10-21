@@ -70,3 +70,25 @@ async function fetchIssues(args: {
   }
   return GitHubIssueResponseSchema.parse(await resp.json());
 }
+
+export async function fetchGitHubMembers(token: string, organization: string) {
+  const response = await fetch(`https://api.github.com/orgs/${organization}/members`, {
+    headers: {
+      Authorization: `token ${token}`,
+      Accept: 'application/vnd.github.v3+json',
+    },
+  });
+  
+
+  if (!response.ok) {
+    throw new Error(`GitHub API request failed with status ${response.status}`);
+  }
+
+  const members = await response.json();
+ 
+  return members.map((member: any) => ({
+    fullName: member.login,
+    imageUrl: member.avatar_url,
+    profileUrl: member.html_url,
+  }));
+}

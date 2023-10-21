@@ -1,18 +1,23 @@
-import { assert } from "$std/_util/asserts.ts";
-import { JSX } from "preact";
+import { assert } from '$std/_util/asserts.ts'
+import { JSX } from 'preact'
 
-export default function Home() {
-  const ghToken = Deno.env.get("GITHUB_TOKEN");
-  assert(ghToken);
+import { fetchGitHubMembers } from '../lib/github.ts'
+
+export default async function Home() {
+  const ghToken = Deno.env.get('GITHUB_TOKEN')
+  assert(ghToken)
+
+  const org = 'devict'
+
+  const contributors = await fetchGitHubMembers(ghToken, org)
 
   return (
     <div class="container mx-auto px-8">
       <div class="text-center">
         <p class="text-2xl mb-4 max-w-4xl mx-auto">
-          <strong>devICT</strong> is a volunteer-run community aiming to{" "}
-          <strong>educate, empower and connect</strong>{" "}
-          software developers and technologists in the{" "}
-          <strong>Wichita, KS</strong> area.
+          <strong>devICT</strong> is a volunteer-run community aiming to{' '}
+          <strong>educate, empower and connect</strong> software developers and
+          technologists in the <strong>Wichita, KS</strong> area.
         </p>
         <hr class="my-8 mx-auto max-w-md" />
         <p class="text-lg mb-4">
@@ -26,25 +31,23 @@ export default function Home() {
         {[
           {
             title: `Build Skills`,
-            content:
-              `Working on real-world projects exposes you to new technologies and best practices.`,
+            content: `Working on real-world projects exposes you to new technologies and best practices.`,
           },
           {
             title: `Portfolio Building`,
-            content:
-              `Your contributions get recorded on GitHub, providing tangible proof of your skills.`,
+            content: `Your contributions get recorded on GitHub, providing tangible proof of your skills.`,
           },
           {
             title: `Learning and Networking`,
-            content:
-              `Interacting with the community offers immense learning opportunities and widens your professional network.`,
+            content: `Interacting with the community offers immense learning opportunities and widens your professional network.`,
           },
           {
             title: `Giving Back`,
-            content:
-              `By contributing, you help grow the local tech scene and create a richer environment for everyone involved.`,
+            content: `By contributing, you help grow the local tech scene and create a richer environment for everyone involved.`,
           },
-        ].map((card) => <Card {...card} />)}
+        ].map((card) => (
+          <Card {...card} />
+        ))}
       </div>
 
       <h2 class="text-3xl font-semibold my-8">How You Can Contribute</h2>
@@ -54,61 +57,79 @@ export default function Home() {
             title: `Join the Conversation`,
             content: (
               <>
-                Join us{" "}
+                Join us{' '}
                 <a href="https://slack.devict.org" title="Join devICT Slack">
                   in Slack
-                </a>{" "}
+                </a>{' '}
                 and jump into the conversation! Share what you're working on,
                 asking questions, and help others.
               </>
             ),
           },
           {
-            title: "Contribute with Code",
+            title: 'Contribute with Code',
             content: (
               <>
-                Browse our{" "}
-                <a href="/projects" title="devICT Projects">active projects</a>,
-                find an issue that interests you, and jump right in!
+                Browse our{' '}
+                <a href="/projects" title="devICT Projects">
+                  active projects
+                </a>
+                , find an issue that interests you, and jump right in!
               </>
             ),
           },
           {
-            title: "Contribute without Code",
+            title: 'Contribute without Code',
             content: (
               <>
                 Help us with documentation, design, or outreach efforts. Add
-                clarity by asking questions on{" "}
-                <a href="/projects" title="devICT Projects">existing issues</a>,
-                or contribute your ideas by filing new ones.
+                clarity by asking questions on{' '}
+                <a href="/projects" title="devICT Projects">
+                  existing issues
+                </a>
+                , or contribute your ideas by filing new ones.
               </>
             ),
           },
           {
             title: `Give a Talk or Workshop`,
-            content:
-              `Share your knowledge and experience in a lightning talk or more comprehensive sessions.`,
+            content: `Share your knowledge and experience in a lightning talk or more comprehensive sessions.`,
           },
           {
             title: `Financial Support`,
-            content:
-              `Donations help us keep the lights on and fund community events. Every bit counts!`,
+            content: `Donations help us keep the lights on and fund community events. Every bit counts!`,
           },
           {
             title: `Unique Contributions`,
-            content:
-              `Have a unique idea or skillset? We're all ears! Reach out to propose new ways to contribute.`,
+            content: `Have a unique idea or skillset? We're all ears! Reach out to propose new ways to contribute.`,
           },
-        ].map((card) => <Card {...card} />)}
+        ].map((card) => (
+          <Card {...card} />
+        ))}
+      </div>
+      <h2 class="text-3xl font-semibold my-8">Contributors</h2>
+
+      <div class="bg-white rounded-lg shadow-lg p-6">
+        {contributors.map((contributor) => (
+          <div class="inline-block mx-4 my-4">
+            <Contributor {...contributor} />
+          </div>
+        ))}
       </div>
     </div>
-  );
+  )
 }
 
 type CardProps = {
-  title: string;
-  content: string | JSX.Element;
-};
+  title: string
+  content: string | JSX.Element
+}
+
+type ContributorsProps = {
+  fullName: string
+  imageUrl: string
+  profileUrl: string
+}
 
 function Card({ title, content }: CardProps) {
   return (
@@ -116,5 +137,20 @@ function Card({ title, content }: CardProps) {
       <h3 class="text-xl font-medium mb-2">{title}</h3>
       <p class="text-md mb-2">{content}</p>
     </div>
-  );
+  )
+}
+
+function Contributor({ fullName, imageUrl, profileUrl }: ContributorsProps) {
+  return (
+    <a href={profileUrl} target="_blank" rel="noopener noreferrer">
+      <div class="text-center mx-4 cursor-pointer">
+        <img
+          src={imageUrl}
+          alt={fullName}
+          class="rounded-full h-16 w-16 mb-2"
+        />
+        <p class="text-sm">{fullName}</p>
+      </div>
+    </a>
+  )
 }
