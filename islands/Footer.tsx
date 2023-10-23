@@ -9,7 +9,7 @@ export const Footer = () => {
       <hr class="mx-auto my-8 max-w-md"/>
       <div class="text-center">
         <span class="inline-block">
-          <a href="https://github.com/devict/help" target="_blank" rel="noopener noreferrer" class="text-md font-medium">
+          <a href="https://github.com/devict/help" target="_blank" rel="noopener noreferrer" class="text-md font-medium underline text-blue-600 hover:text-blue-800 visited:text-purple-600">
             <span class="flex items-center gap-1">
               Github
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">

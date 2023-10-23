@@ -55,7 +55,7 @@ export default function Home() {
             content: (
               <>
                 Join us{" "}
-                <a href="https://slack.devict.org" title="Join devICT Slack">
+                <a href="https://slack.devict.org" title="Join devICT Slack" class="underline text-blue-600 hover:text-blue-800 visited:text-purple-600">
                   in Slack
                 </a>{" "}
                 and jump into the conversation! Share what you're working on,
@@ -70,7 +70,7 @@ export default function Home() {
             content: (
               <>
                 Browse our{" "}
-                <a href="/projects" title="devICT Projects">active projects</a>,
+                <a href="/projects" title="devICT Projects" class="underline text-blue-600 hover:text-blue-800 visited:text-purple-600">active projects</a>,
                 find an issue that interests you, and jump right in!
               </>
             ),
@@ -83,7 +83,7 @@ export default function Home() {
               <>
                 Help us with documentation, design, or outreach efforts. Add
                 clarity by asking questions on{" "}
-                <a href="/projects" title="devICT Projects">existing issues</a>,
+                <a href="/projects" title="devICT Projects" class="underline text-blue-600 hover:text-blue-800 visited:text-purple-600">existing issues</a>,
                 or contribute your ideas by filing new ones.
               </>
             ),

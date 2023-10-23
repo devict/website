@@ -31,11 +31,11 @@ export default async function Home() {
           const repoUrl = `https://github.com/${repoPath}`;
           return (
             <li class="my-1">
-              <span class="font-bold">
+              <span class="font-bold underline hover:text-gray-600">
                 <a href={repoUrl}>{repoPath}</a>:{" "}
               </span>
               <span>
-                <a href={issue.html_url}>{issue.title}</a>
+                <a href={issue.html_url} class="underline text-blue-600 hover:text-blue-800 visited:text-purple-600">{issue.title}</a>
               </span>
             </li>
           );
