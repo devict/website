@@ -1,15 +1,20 @@
 import { assert } from '$std/_util/asserts.ts'
 import { JSX } from 'preact'
+import { fetchGitHubContributors, fetchGitHubMembers } from '../lib/github.ts'
 
-import { fetchGitHubMembers } from '../lib/github.ts'
+const DEVICT_REPOS: string[] = [
+  'devict/job-board',
+  'devict/devict.org',
+  'devict/keeper',
+  'devict/hacktoberfest',
+  'devict/help',
+]
 
 export default async function Home() {
   const ghToken = Deno.env.get('GITHUB_TOKEN')
   assert(ghToken)
 
-  const org = 'devict'
-
-  const contributors = await fetchGitHubMembers(ghToken, org)
+  const contributors = await fetchGitHubContributors(ghToken, DEVICT_REPOS)
 
   return (
     <div class="container mx-auto px-8">
@@ -109,7 +114,7 @@ export default async function Home() {
       </div>
       <h2 class="text-3xl font-semibold my-8">Contributors</h2>
 
-      <div class="bg-white rounded-lg shadow-lg p-6">
+      <div class="bg-white rounded-lg shadow-lg grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
         {contributors.map((contributor) => (
           <div class="inline-block mx-4 my-4">
             <Contributor {...contributor} />
@@ -126,9 +131,9 @@ type CardProps = {
 }
 
 type ContributorsProps = {
-  fullName: string
-  imageUrl: string
-  profileUrl: string
+  login: string
+  avatar_url: string
+  html_url: string
 }
 
 function Card({ title, content }: CardProps) {
@@ -140,16 +145,15 @@ function Card({ title, content }: CardProps) {
   )
 }
 
-function Contributor({ fullName, imageUrl, profileUrl }: ContributorsProps) {
+function Contributor({ login, avatar_url, html_url }: ContributorsProps) {
   return (
-    <a href={profileUrl} target="_blank" rel="noopener noreferrer">
-      <div class="text-center mx-4 cursor-pointer">
-        <img
-          src={imageUrl}
-          alt={fullName}
-          class="rounded-full h-16 w-16 mb-2"
-        />
-        <p class="text-sm">{fullName}</p>
+    <a href={html_url} target="_blank" rel="noopener noreferrer">
+      <div
+        class="text-center mx-4 cursor-pointer"
+        style="display: flex; flex-direction: column; align-items: center;"
+      >
+        <img src={avatar_url} alt={login} class="rounded-full h-16 w-16 mb-2" />
+        <p class="text-sm">{login}</p>
       </div>
     </a>
   )
