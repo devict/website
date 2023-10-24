@@ -57,8 +57,10 @@ export default async function Home() {
             title: `Join the Conversation`,
             content: (
               <>
-                Join us{' '}
-                <a href="https://slack.devict.org" title="Join devICT Slack">
+
+                Join us{" "}
+                <a href="https://slack.devict.org" title="Join devICT Slack" class="underline text-blue-600 hover:text-blue-800 visited:text-purple-600">
+
                   in Slack
                 </a>{' '}
                 and jump into the conversation! Share what you're working on,
@@ -72,11 +74,11 @@ export default async function Home() {
             title: 'Contribute with Code',
             content: (
               <>
-                Browse our{' '}
-                <a href="/projects" title="devICT Projects">
-                  active projects
-                </a>
-                , find an issue that interests you, and jump right in!
+
+                Browse our{" "}
+                <a href="/projects" title="devICT Projects" class="underline text-blue-600 hover:text-blue-800 visited:text-purple-600">active projects</a>,
+                find an issue that interests you, and jump right in!
+
               </>
             ),
             link: '/projects',
@@ -87,11 +89,11 @@ export default async function Home() {
             content: (
               <>
                 Help us with documentation, design, or outreach efforts. Add
-                clarity by asking questions on{' '}
-                <a href="/projects" title="devICT Projects">
-                  existing issues
-                </a>
-                , or contribute your ideas by filing new ones.
+
+                clarity by asking questions on{" "}
+                <a href="/projects" title="devICT Projects" class="underline text-blue-600 hover:text-blue-800 visited:text-purple-600">existing issues</a>,
+                or contribute your ideas by filing new ones.
+
               </>
             ),
             link: "/projects",
