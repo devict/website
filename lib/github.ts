@@ -70,3 +70,66 @@ async function fetchIssues(args: {
   }
   return GitHubIssueResponseSchema.parse(await resp.json());
 }
+
+interface IContributor {
+  login: string;
+  avatar_url: string;
+  html_url: string;
+}
+
+export async function fetchGitHubContributors(token: string, repos: string[]) {
+  const allContributors: IContributor[] = [];
+  const contributorsMap = new Map<string, IContributor>();
+
+  for (const repo of repos) {
+    const response = await fetch(`https://api.github.com/repos/${repo}/contributors`, {
+      headers: {
+        Authorization: `token ${token}`,
+        Accept: 'application/vnd.github.v3+json',
+      },
+    });
+
+    if (!response.ok) {
+      throw new Error(`GitHub API request failed with status ${response.status}`);
+    }
+  let contributors = await Promise.all(
+    repos.map(async (repo) => {
+      const response = await fetch(
+        `https://api.github.com/repos/${repo}/contributors`,
+        {
+          headers: {
+            Authorization: `token ${token}`,
+            Accept: "application/vnd.github.v3+json",
+          },
+        },
+      );
+
+      if (!response.ok) {
+        throw new Error(
+          `GitHub API request failed with status ${response.status}`,
+        );
+      }
+
+      return response.json();
+    }),
+  );
+
+  contributors = contributors.flat();
+
+  for (const contributor of contributors) {
+    const contributorData: IContributor = {
+      login: contributor.login,
+      avatar_url: contributor.avatar_url,
+      html_url: contributor.html_url,
+    };
+
+    if (!contributorsMap.has(contributor.login)) {
+      contributorsMap.set(contributor.login, contributorData);
+    }
+  }
+
+ 
+  allContributors.push(...contributorsMap.values());
+
+  return allContributors;
+} 
