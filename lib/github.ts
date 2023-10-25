@@ -81,17 +81,6 @@ export async function fetchGitHubContributors(token: string, repos: string[]) {
   const allContributors: IContributor[] = [];
   const contributorsMap = new Map<string, IContributor>();
 
-  for (const repo of repos) {
-    const response = await fetch(`https://api.github.com/repos/${repo}/contributors`, {
-      headers: {
-        Authorization: `token ${token}`,
-        Accept: 'application/vnd.github.v3+json',
-      },
-    });
-
-    if (!response.ok) {
-      throw new Error(`GitHub API request failed with status ${response.status}`);
-    }
   let contributors = await Promise.all(
     repos.map(async (repo) => {
       const response = await fetch(
@@ -128,8 +117,7 @@ export async function fetchGitHubContributors(token: string, repos: string[]) {
     }
   }
 
- 
   allContributors.push(...contributorsMap.values());
 
   return allContributors;
-} 
+}
