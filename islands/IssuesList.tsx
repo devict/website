@@ -10,6 +10,8 @@ type Props = {
 const IssuesList = ({ repos, issues }: Props) => {
   const [filter, setFilter] = useState(null)
   const filterIssues = useCallback((issue) => setFilter(issue))
+
+
   const clearFilter = useCallback(() => setFilter(null))
 
   return (
@@ -30,15 +32,14 @@ const IssuesList = ({ repos, issues }: Props) => {
           const repoPath = `${orgName}/${repoName}`;
           if (filter && filter != repoPath) return;
 
-          const repoUrl = `https://github.com/${repoPath}`;
-
           return (
             <li class="my-1">
-              <span class="font-bold">
-                <a href={repoUrl}>{repoPath}</a>:{" "}
-              </span>
+              <a href={issue.html_url}>
+                <span class="font-bold">{repoPath}:</span>{" "}
+                {issue.title}
+              </a>
               <span>
-                <a href={issue.html_url}>{issue.title}</a>
+                {issue.labels.map(label => <span style={"background-color: #".concat(label.color)} class="font-bold ml-2 px-2 py-1 rounded-xl text-black text-xs whitespace-nowrap">{label.name}</span>)}
               </span>
             </li>
           );
