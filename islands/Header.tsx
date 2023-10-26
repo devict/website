@@ -23,7 +23,7 @@ export default function Header({ active, nav }: Props) {
         class={"md:flex md:hidden md:items-center " +
           (isDropdownOpen ? "flex flex-col items-end" : "hidden")}
       >
-        <ul class="gap-6 flex mt-2 flex-row flex-wrap justify-center w-full">
+        <ul class="gap-5 sm:gap-10 flex mt-2 flex-row flex-wrap justify-center w-full">
           {nav.map((item) => (
             <li class="text-right pb-1 border-b-1 border-slate-100 hover:border-slate-200 rounded flex-none">
               <a
