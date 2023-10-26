@@ -8,38 +8,59 @@ type Props = {
 };
 
 const IssuesList = ({ repos, issues }: Props) => {
-  const [filter, setFilter] = useState(null)
-  const filterIssues = useCallback((issue) => setFilter(issue))
+  const [repoFilter, setRepoFilter] = useState(null);
+  const [labelFilter, setLabelFilter] = useState({name: null, color: null});
+  const filterByRepo = useCallback((repo) => setRepoFilter(repo));
+  const filterByLabel = useCallback((label) => setLabelFilter(label));
 
+  const clearFilters = useCallback(() => {
+    setRepoFilter(null);
+    setLabelFilter(null);
+  });
 
-  const clearFilter = useCallback(() => setFilter(null))
+  const showLabel = (label: { name: string, color: string }) => {
+    return (<span onClick={() => filterByLabel(label)} style={"background-color: #".concat(label.color)} class="cursor-pointer font-bold ml-2 px-2 py-1 rounded-xl text-white text-xs whitespace-nowrap hover:text-black">{label.name}</span>);
+  };
 
   return (
     <Card title="Current Issues">
       <div className="flex items-center justify-between my-3">
-        <select onChange={e => filterIssues(e.target.value)} value={filter} class="px-3 py-2">
-          <option value={null}>Select a Repo to Filter</option>
-          {repos.map(repo => {
-            const [orgName, repoName] = repo.split("/").slice(-2);
-            return <option value={repo}>{repoName}</option>
-          })}
-        </select>
-        {filter && <button type="button" onClick={clearFilter} class="bg-stone-200 cursor-pointer px-3 py-1 rounded-lg text-right">Clear Filter</button>}
+        <div>
+          <select onChange={e => filterByRepo(e.target.value)} value={repoFilter} class="px-3 py-2">
+            <option value={null}>Filter by Repo</option>
+            {repos.map(repo => {
+              const [orgName, repoName] = repo.split("/").slice(-2);
+              return <option value={repo}>{repoName}</option>
+            })}
+          </select>
+          {(labelFilter && labelFilter.name) && (
+            <>
+              <span class="font-bold ml-4">Labeled with: </span>{showLabel(labelFilter)}
+            </>
+          )}
+        </div>
+        {(repoFilter || (labelFilter && labelFilter.name)) && <button type="button" onClick={clearFilters} class="bg-stone-200 cursor-pointer px-3 py-1 rounded-lg text-right">Clear Filters</button>}
       </div>
       <ul class="list-none">
         {issues.map((issue) => {
           const [orgName, repoName] = issue.repository_url.split("/").slice(-2);
           const repoPath = `${orgName}/${repoName}`;
-          if (filter && filter != repoPath) return;
+
+          if (
+            // If the repo filter is set and this issue is from a different repo, or
+            (repoFilter && repoFilter != repoPath) ||
+            // If the label filter is set and this issue does not contain the label to filter by...
+            (labelFilter && labelFilter.name) && !issue.labels.some(label => label.name === labelFilter.name)
+          ) return; // Don't render the issue.
 
           return (
-            <li class="my-1">
+            <li class="my-2">
               <a href={issue.html_url}>
                 <span class="font-bold">{repoPath}:</span>{" "}
                 {issue.title}
               </a>
               <span>
-                {issue.labels.map(label => <span style={"background-color: #".concat(label.color)} class="font-bold ml-2 px-2 py-1 rounded-xl text-black text-xs whitespace-nowrap">{label.name}</span>)}
+                {issue.labels.map(label => showLabel({...label}))}
               </span>
             </li>
           );
