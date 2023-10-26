@@ -1,6 +1,5 @@
 import { assert } from "$std/_util/asserts.ts";
-import { JSX } from "preact";
-import Card from '../islands/Card.tsx';
+import Card from '../components/Card.tsx';
 
 export default function Home() {
   const ghToken = Deno.env.get("GITHUB_TOKEN");
@@ -111,24 +110,3 @@ export default function Home() {
     </div>
   );
 }
-
-// type CardProps = {
-//   title: string;
-//   content: string | JSX.Element;
-//   link: string;
-//   link_text: string;
-// };
-
-// function Card({ title, content, link, link_text }: CardProps) {
-//   return (
-//     <div class="bg-white rounded-lg shadow-lg p-6 flex flex-col justify-between items-start">
-//       <div>
-//         <h3 class="text-xl font-medium mb-2">{title}</h3>
-//         <p class="text-md">{content}</p>
-//       </div>
-//       {link && (
-//         <a class='bg-ict-orange font-bold mt-4 px-4 py-2 text-white w-auto' href={link}>{link_text ? (link_text) : "Learn more"}</a>
-//       )}
-//     </div>
-//   );
-// }

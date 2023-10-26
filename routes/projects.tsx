@@ -1,6 +1,7 @@
 import { assert } from "$std/_util/asserts.ts";
 import { getHelpWantedIssues } from "../lib/github.ts";
-import Card from "../islands/Card.tsx";
+import Card from "../components/Card.tsx";
+import IssuesList from "../islands/IssuesList.tsx";
 
 const DEVICT_REPOS: string[] = [
   "devict/job-board",
@@ -19,30 +20,17 @@ export default async function Home() {
     repos: DEVICT_REPOS,
   });
 
+  const issuesListProps = {
+    repos: DEVICT_REPOS,
+    issues
+  };
+
   return (
     <>
       <h1 class="text-4xl font-bold mb-4 px-10">Contribute to devICT</h1>
       <div class="grid grid-cols-3 gap-4 px-10 w-full">
         <div class="col-span-2">
-          <Card title="Current Issues">
-            <ul class="list-none">
-              {issues.map((issue) => {
-                const [orgName, repoName] = issue.repository_url.split("/").slice(-2);
-                const repoPath = `${orgName}/${repoName}`;
-                const repoUrl = `https://github.com/${repoPath}`;
-                return (
-                  <li class="my-1">
-                    <span class="font-bold">
-                      <a href={repoUrl}>{repoPath}</a>:{" "}
-                    </span>
-                    <span>
-                      <a href={issue.html_url}>{issue.title}</a>
-                    </span>
-                  </li>
-                );
-              })}
-            </ul>
-          </Card>
+          <IssuesList {...issuesListProps} />
         </div>
         <div class="">
           <Card title="Repositories">
