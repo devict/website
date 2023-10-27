@@ -32,7 +32,15 @@ export default async function Home() {
         <div class="col-span-3">
           <IssuesList {...issuesListProps} />
         </div>
-        <Card title="Repositories" />
+        <Card title="Repositories">
+          <ul class="style-none">
+            {DEVICT_REPOS.map(repo => {
+              const repoName = repo.split("/").slice(-1);
+              const repoUrl = `https://github.com/${repo}`;
+              return <li class="hover:underline"><a href={repoUrl}>{repoName}</a></li>;
+            })}
+          </ul>
+        </Card>
       </div>
     </div>
   );
