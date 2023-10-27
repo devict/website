@@ -1,5 +1,7 @@
 import { assert } from "$std/_util/asserts.ts";
 import { getHelpWantedIssues } from "../lib/github.ts";
+import Card from '../components/Card.tsx';
+import IssuesList from '../islands/IssuesList.tsx';
 
 const DEVICT_REPOS: string[] = [
   "devict/job-board",
@@ -8,9 +10,6 @@ const DEVICT_REPOS: string[] = [
   "devict/hacktoberfest",
   "devict/help",
 ];
-
-// const COMMUNITY_REPOS: string[] = [];
-// const REPOS = [...DEVICT_REPOS, ...COMMUNITY_REPOS];
 
 export default async function Home() {
   const ghToken = Deno.env.get("GITHUB_TOKEN");
@@ -21,26 +20,20 @@ export default async function Home() {
     repos: DEVICT_REPOS,
   });
 
+  const issuesListProps = {
+    repos: DEVICT_REPOS,
+    issues
+  };
+
   return (
-    <>
+    <div class="container mx-auto px-4">
       <h1 class="text-4xl font-bold mb-4">Contribute to devICT</h1>
-      <ul class="list-none">
-        {issues.map((issue) => {
-          const [orgName, repoName] = issue.repository_url.split("/").slice(-2);
-          const repoPath = `${orgName}/${repoName}`;
-          const repoUrl = `https://github.com/${repoPath}`;
-          return (
-            <li class="my-1">
-              <span class="font-bold underline hover:text-gray-600">
-                <a href={repoUrl}>{repoPath}</a>:{" "}
-              </span>
-              <span>
-                <a href={issue.html_url} class="underline text-blue-600 hover:text-blue-800 visited:text-purple-600">{issue.title}</a>
-              </span>
-            </li>
-          );
-        })}
-      </ul>
-    </>
+      <div className="grid grid-cols-4 gap-4">
+        <div class="col-span-3">
+          <IssuesList {...issuesListProps} />
+        </div>
+        <Card title="Repositories" />
+      </div>
+    </div>
   );
 }
