@@ -7,8 +7,21 @@ type Props = {
   issues: Array<GitHubIssue>;
 };
 
+type LabelProps = {
+  name: string;
+  color: string;
+}
+
 const IssuesList = ({repos, issues}: Props) => {
   const [repoFilter, setRepoFilter] = useState(null);
+  const showLabel = (label: LabelProps) => {
+    return (
+      <span style={"background-color: #".concat(label.color)} class="cursor-pointer font-bold ml-4 px-2 py-1 rounded-xl text-white text-xs whitespace-nowrap hover:text-black">
+        {label.name}
+        </span>
+    )
+  };
+
   return (
     <Card title="Current Issues">
       <div class="flex justify-between my-4">
@@ -24,7 +37,7 @@ const IssuesList = ({repos, issues}: Props) => {
           const repoPath = `${orgName}/${repoName}`;
 
           if (repoFilter && repoPath !== repoFilter) return;
-          
+
           const repoUrl = `https://github.com/${repoPath}`;
           return (
             <li class="my-1">
@@ -34,6 +47,7 @@ const IssuesList = ({repos, issues}: Props) => {
                   {issue.title}
                 </a>
               </span>
+              {issue.labels.map(label => showLabel(label))}
             </li>
           );
         })}
