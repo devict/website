@@ -72,7 +72,7 @@ export default async function Home() {
                 return <li class="hover:underline"><a href={repoUrl} target="_blank">{repoName}</a></li>;
               })}
             </ul>
-            <a href="https://github.com/devict/help/pulls" target="_blank"><p class="font-bold mt-4 text-sm text-orange-800">File a pull request to add your reo!</p></a>
+            <a href="https://github.com/devict/help/pulls" target="_blank"><p class="font-bold mt-4 text-sm text-orange-800">Open a pull request to add your repo!</p></a>
           </Card>
         </div>
       </div>
