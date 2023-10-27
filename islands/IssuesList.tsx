@@ -33,9 +33,13 @@ const IssuesList = ({ repos, issues }: Props) => {
               return <option value={repo}>{repoName}</option>
             })}
           </select>
-          {(labelFilter && labelFilter.name) && (
+          {(labelFilter && labelFilter.name) ? (
             <>
               <span class="font-bold ml-4">Labeled with: </span>{showLabel(labelFilter)}
+            </>
+          ) : (
+            <>
+              <span class="font-bold ml-4">Click a label to filter</span>
             </>
           )}
         </div>
