@@ -49,7 +49,7 @@ async function fetchIssues(args: {
   perPage?: number;
   page?: number;
 }) {
-  const defaults = { perPage: 100, page: 1, labels: ["devict-help-wanted"] };
+  const defaults = { perPage: 100, page: 1, labels: [] };
   const { token, repo, labels, perPage, page } = { ...defaults, ...args };
 
   const url = `https://api.github.com/repos/${repo}/issues?state=open&labels=${
