@@ -1,5 +1,6 @@
 import { assert } from "$std/_util/asserts.ts";
 import Card from '../components/Card.tsx';
+import { fetchGitHubContributors } from '../lib/github.ts'
 
 const DEVICT_REPOS: string[] = [
   'devict/job-board',
@@ -106,6 +107,7 @@ export default async function Home() {
           {
             title: `Give a Talk or Workshop`,
             content: `Share your knowledge and experience in a lightning talk or more comprehensive sessions.`,
+            link: "https://www.meetup.com/devict/"
           },
           {
             title: `Financial Support`,
