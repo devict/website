@@ -107,6 +107,9 @@ export default async function Home() {
           {
             title: `Give a Talk or Workshop`,
             content: `Share your knowledge and experience in a lightning talk or more comprehensive sessions.`,
+            link: "https://speak.devict.org/",
+            link_text: "Sign Up",
+            external: true,
           },
           {
             title: `Financial Support`,
@@ -138,15 +141,10 @@ type CardProps = {
   content: string | JSX.Element;
   link: string;
   link_text: string;
+  external: boolean;
 };
 
-
-type ContributorsProps = {
-  login: string
-  avatar_url: string
-  html_url: string
-}
-function Card({ title, content, link, link_text }: CardProps) {
+function Card({ title, content, link, link_text, external }: CardProps) {
   return (
     <div class="bg-white rounded-lg shadow-lg p-6 flex flex-col justify-between items-start">
       <div>
@@ -154,10 +152,23 @@ function Card({ title, content, link, link_text }: CardProps) {
         <p class="text-md">{content}</p>
       </div>
       {link && (
-        <a class='bg-ict-orange font-bold mt-4 px-4 py-2 text-white w-auto' href={link}>{link_text ? (link_text) : "Learn more"}</a>
+        <a
+          class="bg-ict-orange font-bold mt-4 px-4 py-2 text-white w-auto"
+          href={link}
+          target={external ? "_blank" : undefined}
+          rel={external ? "noreferrer noopener" : undefined}
+        >
+          {link_text ? (link_text) : "Learn more"}
+        </a>
       )}
     </div>
   )
+};
+
+type ContributorsProps = {
+  login: string
+  avatar_url: string
+  html_url: string
 }
 
 function Contributor({ login, avatar_url, html_url }: ContributorsProps) {
