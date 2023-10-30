@@ -1,6 +1,6 @@
 import { assert } from "$std/_util/asserts.ts";
 import { getHelpWantedIssues } from "../lib/github.ts";
-import Card from '../components/Card.tsx';
+import RepoList from '../components/RepoList.tsx';
 import IssuesList from '../islands/IssuesList.tsx';
 
 const DEVICT_REPOS: string[] = [
@@ -37,14 +37,6 @@ export default async function Home() {
     issues
   };
 
-  const shuffle = (array: string[]) => { 
-    for (let i = array.length - 1; i > 0; i--) { 
-      const j = Math.floor(Math.random() * (i + 1)); 
-      [array[i], array[j]] = [array[j], array[i]]; 
-    } 
-    return array; 
-  }; 
-
   return (
     <div class="container mx-auto px-4">
       <h1 class="text-4xl font-bold mb-4">Contribute to devICT</h1>
@@ -54,26 +46,9 @@ export default async function Home() {
         </div>
         <div>
           <div class="mb-4">
-            <Card title="DevICT Repos">
-              <ul class="style-none">
-                {DEVICT_REPOS.map(repo => {
-                  const repoName = repo.split("/").slice(-1);
-                  const repoUrl = `https://github.com/${repo}`;
-                  return <li class="hover:underline"><a href={repoUrl} target="_blank">{repoName}</a></li>;
-                })}
-              </ul>
-            </Card>
+            <RepoList title="DevICT Repos" list={DEVICT_REPOS} />
           </div>
-          <Card title="ICT Communty Repos" >
-            <ul class="style-none">
-              {shuffle(COMMUNITY_REPOS).map(repo => {
-                const repoName = repo.split("/").slice(-1);
-                const repoUrl = `https://github.com/${repo}`;
-                return <li class="hover:underline"><a href={repoUrl} target="_blank">{repoName}</a></li>;
-              })}
-            </ul>
-            <a href="https://github.com/devict/help/pulls" target="_blank"><p class="font-bold mt-4 text-sm text-orange-800">Open a pull request to add your repo!</p></a>
-          </Card>
+          <RepoList title="ICT Communty Repos" list={COMMUNITY_REPOS} shuffleList={true} />
         </div>
       </div>
     </div>

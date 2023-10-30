@@ -39,14 +39,14 @@ const IssuesList = ({repos, issues}: Props) => {
             {repos.map(repo => <option value={repo}>{repo}</option>)}
           </select>
           <span class="ml-4">
-            {labelFilter.name ? (
+            {labelFilter ? (
               <>Labeled with: {showLabel({...labelFilter})}</>
             ) : (
               "Click a label to filter issues"
             )}
           </span>
         </div>
-        {(repoFilter || labelFilter.name) && <button type="button" onClick={clearFilters} class="bg-zinc-200 px-4">Clear Filters</button>}
+        {(repoFilter !== NO_FILTER || labelFilter) && <button type="button" onClick={clearFilters} class="bg-zinc-200 px-4">Clear Filters</button>}
       </div>
       <ul class="list-none">
         {issues.map((issue) => {
@@ -54,8 +54,8 @@ const IssuesList = ({repos, issues}: Props) => {
           const repoPath = `${orgName}/${repoName}`;
 
           if (
-            (repoFilter && repoPath !== repoFilter) ||
-            (labelFilter.name && !issue.labels.some(label => label.name == labelFilter.name))
+            (repoFilter !== NO_FILTER && repoPath !== repoFilter) ||
+            (labelFilter && !issue.labels.some(label => label.name == labelFilter.name))
           ) return;
 
           const repoUrl = `https://github.com/${repoPath}`;
