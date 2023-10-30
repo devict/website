@@ -35,7 +35,7 @@ const IssuesList = ({repos, issues}: Props) => {
       <div class="flex justify-between my-4">
         <div>
           <select class="px-4 py-2" value={repoFilter} onChange={e => setRepoFilter(e.currentTarget.value)}>
-            <option value={null}>Filter by Repo</option>
+            <option value={NO_FILTER}>Filter by Repo</option>
             {repos.map(repo => <option value={repo}>{repo}</option>)}
           </select>
           <span class="ml-4">
