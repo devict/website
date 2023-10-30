@@ -2,10 +2,10 @@ import { ComponentChildren, JSX } from 'preact';
 
 type CardProps = {
   title: string;
-  content: string | JSX.Element;
+  content?: string | JSX.Element;
   link?: string;
   link_text?: string;
-  children: ComponentChildren;
+  children?: ComponentChildren;
 };
 
 const Card = ({ title, content, link, link_text="", children }: CardProps) => {
