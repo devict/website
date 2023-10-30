@@ -134,14 +134,6 @@ export default async function Home() {
   )
 }
 
-type CardProps = {
-  title: string;
-  content: string | JSX.Element;
-  link: string;
-  link_text: string;
-};
-
-
 type ContributorsProps = {
   login: string
   avatar_url: string

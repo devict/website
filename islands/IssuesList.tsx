@@ -1,6 +1,6 @@
-import { GitHubIssue } from '../lib/github.ts';
+import { GitHubIssue, issueRepoPath } from '../lib/github.ts';
 import Card from '../components/Card.tsx';
-import { useState } from 'preact/hooks';
+import { useMemo, useState } from 'preact/hooks';
 
 type Props = {
   repos: Array<string>;
@@ -30,6 +30,19 @@ const IssuesList = ({repos, issues}: Props) => {
     );
   };
 
+  const filteredIssues = useMemo(() =>
+    issues.filter((issue) => {
+      const repoPath = issueRepoPath(issue);
+
+      const isFilteredByRepo = repoFilter !== NO_FILTER &&
+        repoPath !== repoFilter;
+      const isFilteredByLabel = labelFilter &&
+        !issue.labels.some((label) => label.name == labelFilter.name);
+
+      return !(isFilteredByRepo || isFilteredByLabel);
+    }), [issues, repoFilter, labelFilter]
+  );
+
   return (
     <Card title="Current Issues">
       <div class="flex justify-between my-4">
@@ -49,30 +62,22 @@ const IssuesList = ({repos, issues}: Props) => {
         {(repoFilter !== NO_FILTER || labelFilter) && <button type="button" onClick={clearFilters} class="bg-zinc-200 px-4">Clear Filters</button>}
       </div>
       <ul class="list-none">
-        {issues.map((issue) => {
-          const [orgName, repoName] = issue.repository_url.split("/").slice(-2);
-          const repoPath = `${orgName}/${repoName}`;
-
-          if (
-            (repoFilter !== NO_FILTER && repoPath !== repoFilter) ||
-            (labelFilter && !issue.labels.some(label => label.name == labelFilter.name))
-          ) return;
-
-          const repoUrl = `https://github.com/${repoPath}`;
-          return (
-            <li class="my-3">
-              <div class="underline hover:text-gray-600">
-                <a href={issue.html_url} class="underline text-blue-600 hover:text-blue-800 visited:text-purple-600">
-                  <span class="font-bold">{repoPath}:</span>{" "}
-                  {issue.title}
-                </a>
-              </div>
-              <div class="flex">
-                {issue.labels.map(label => showLabel(label))}
-              </div>
-            </li>
-          );
-        })}
+        {filteredIssues.map((issue) => (
+          <li class="my-3">
+            <div class="underline hover:text-gray-600">
+              <a
+                href={issue.html_url}
+                class="underline text-blue-600 hover:text-blue-800 visited:text-purple-600"
+              >
+                <span class="font-bold">{issueRepoPath(issue)}:</span>{" "}
+                {issue.title}
+              </a>
+            </div>
+            <div class="flex">
+              {issue.labels.map((label) => showLabel(label))}
+            </div>
+          </li>
+        ))}
       </ul>
     </Card>
   )
