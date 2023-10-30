@@ -108,6 +108,9 @@ export default async function Home() {
           {
             title: `Give a Talk or Workshop`,
             content: `Share your knowledge and experience in a lightning talk or more comprehensive sessions.`,
+            link: "https://speak.devict.org/",
+            link_text: "Sign Up",
+            external: true,
           },
           {
             title: `Financial Support`,
