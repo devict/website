@@ -13,8 +13,9 @@ type LabelProps = {
 }
 
 const IssuesList = ({repos, issues}: Props) => {
-  const [repoFilter, setRepoFilter] = useState(null);
-  const [labelFilter, setLabelFilter] = useState({});
+  const NO_FILTER = "none";
+  const [repoFilter, setRepoFilter] = useState<string>(NO_FILTER);
+  const [labelFilter, setLabelFilter] = useState<LabelProps | undefined>();
 
   const clearFilters = () => {
     setRepoFilter(null);
