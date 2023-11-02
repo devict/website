@@ -1,5 +1,7 @@
 import { assert } from "$std/_util/asserts.ts";
 import { getHelpWantedIssues } from "../lib/github.ts";
+import RepoList from '../components/RepoList.tsx';
+import IssuesList from '../islands/IssuesList.tsx';
 
 const DEVICT_REPOS: string[] = [
   "devict/job-board",
@@ -9,42 +11,48 @@ const DEVICT_REPOS: string[] = [
   "devict/help",
 ];
 
-// const COMMUNITY_REPOS: string[] = [];
-// const REPOS = [...DEVICT_REPOS, ...COMMUNITY_REPOS];
+const COMMUNITY_REPOS: string[] = [
+  "benblankley/fort-rpg",
+  "blunket/camelot",
+  "imacrayon/alpine-ajax",
+  "imacrayon/snowbodyknows",
+  "imacrayon/whatthetofu",
+  "kentonh/ProjectNameGenerator",
+  "sethetter/linktrap",
+  "sethetter/reqq"
+];
 
 export default async function Home() {
+  const ALL_REPOS = DEVICT_REPOS.concat(COMMUNITY_REPOS);
   const ghToken = Deno.env.get("GITHUB_TOKEN");
   assert(ghToken);
 
   const issues = await getHelpWantedIssues({
     token: ghToken,
-    repos: DEVICT_REPOS,
+    repos: ALL_REPOS,
   });
 
+  const issuesListProps = {
+    repos: ALL_REPOS,
+    issues
+  };
+
   return (
-    <>
+    <div class="container mx-auto px-4">
       <h1 class="text-4xl font-bold mb-4">Contribute to devICT</h1>
-      <ul class="list-none">
-        {issues.map((issue, index) => {
-          const [orgName, repoName] = issue.repository_url.split("/").slice(-2);
-          const repoPath = `${orgName}/${repoName}`;
-          const repoUrl = `https://github.com/${repoPath}`;
-          return index === 0 || index > 0 && issue.repository_url != issues[index - 1].repository_url ? (
-            <li class="my-1">
-              <span class="font-bold underline hover:text-gray-600">
-                <a href={repoUrl}>{repoPath}</a>:{" "}
-              </span>
-              <ul>{issues.map((issue) => {
-                  if((issue.html_url).includes(repoPath)){
-                    return (<li><span>
-                      <a href={issue.html_url} class="underline text-blue-600 hover:text-blue-800 visited:text-purple-600">{issue.title}</a>
-                    </span></li>)
-                  }
-                  })}</ul>
-            </li>
-          ) : ''
-        })}
-      </ul>
-    </>
+
+      <div class="grid grid-cols-4 gap-4">
+        <div class="col-span-3">
+          <IssuesList {...issuesListProps} />
+        </div>
+        <div>
+          <div class="mb-4">
+            <RepoList title="DevICT Repos" list={DEVICT_REPOS} />
+          </div>
+          <RepoList title="ICT Communty Repos" list={COMMUNITY_REPOS} shuffleList={true} />
+        </div>
+      </div>
+    </div>
+
   );
 }

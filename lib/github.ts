@@ -121,3 +121,9 @@ export async function fetchGitHubContributors(token: string, repos: string[]) {
 
   return allContributors;
 }
+
+export function issueRepoPath (issue: GitHubIssue) {
+  const [orgName, repoName] = issue.repository_url.split("/").slice(-2);
+
+  return `${orgName}/${repoName}`;
+}

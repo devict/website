@@ -10,6 +10,9 @@ export default {
         colors: {
           'ict-orange': '#eb7f32'
         },
+        fontSize: {
+          'xxs': '0.65rem'
+        }
       },
     },
   }),
