@@ -24,7 +24,7 @@ const IssuesList = ({repos, issues}: Props) => {
 
   const showLabel = (label: LabelProps) => {
     return (
-      <span onClick={() => setLabelFilter(label)} style={"background-color: #".concat(label.color)} class="cursor-pointer font-bold mr-1 px-2 py-[0.125rem] rounded-xl text-white text-xxs whitespace-nowrap hover:text-black">
+      <span onClick={() => setLabelFilter(label)} style={"background-color: #".concat(label.color)} class="cursor-pointer font-bold mr-1 mb-1 w-fit px-2 py-[0.125rem] rounded-xl text-white text-xxs whitespace-nowrap hover:text-black">
         {label.name}
       </span>
     );
@@ -47,7 +47,7 @@ const IssuesList = ({repos, issues}: Props) => {
     <Card title="Current Issues">
       <div class="flex justify-between my-4">
         <div>
-          <select class="px-4 py-2" value={repoFilter} onChange={e => setRepoFilter(e.currentTarget.value)}>
+          <select class="w-full md:w-auto px-4 py-2 mb-2 md:mb-0" value={repoFilter} onChange={e => setRepoFilter(e.currentTarget.value)}>
             <option value={NO_FILTER}>Filter by Repo</option>
             {repos.map(repo => <option value={repo}>{repo}</option>)}
           </select>
@@ -59,8 +59,9 @@ const IssuesList = ({repos, issues}: Props) => {
             )}
           </span>
         </div>
-        {(repoFilter !== NO_FILTER || labelFilter) && <button type="button" onClick={clearFilters} class="bg-zinc-200 px-4">Clear Filters</button>}
+        
       </div>
+      {(repoFilter !== NO_FILTER || labelFilter) && <button type="button" onClick={clearFilters} class="bg-zinc-200 px-4">Clear Filters</button>}
       <ul class="list-none">
         {filteredIssues.map((issue) => (
           <li class="my-3">
@@ -73,7 +74,7 @@ const IssuesList = ({repos, issues}: Props) => {
                 {issue.title}
               </a>
             </div>
-            <div class="flex">
+            <div class="flex flex-wrap">
               {issue.labels.map((label) => showLabel(label))}
             </div>
           </li>
