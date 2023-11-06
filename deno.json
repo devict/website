@@ -19,7 +19,7 @@
     "**/_fresh/*"
   ],
   "imports": {
-    "$fresh/": "https://deno.land/x/fresh@1.5.1/",
+    "$fresh/": "https://deno.land/x/fresh@1.5.2/",
     "zod": "https://deno.land/x/zod@v3.22.4/mod.ts",
     "preact": "https://esm.sh/preact@10.18.1",
     "preact/": "https://esm.sh/preact@10.18.1/",
