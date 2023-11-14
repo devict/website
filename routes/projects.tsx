@@ -1,7 +1,7 @@
 import { assert } from "$std/_util/asserts.ts";
 import { getHelpWantedIssues } from "../lib/github.ts";
-import RepoList from '../components/RepoList.tsx';
-import IssuesList from '../islands/IssuesList.tsx';
+import RepoList from "../components/RepoList.tsx";
+import IssuesList from "../islands/IssuesList.tsx";
 
 const DEVICT_REPOS: string[] = [
   "devict/job-board",
@@ -19,7 +19,7 @@ const COMMUNITY_REPOS: string[] = [
   "imacrayon/whatthetofu",
   "kentonh/ProjectNameGenerator",
   "sethetter/linktrap",
-  "sethetter/reqq"
+  "sethetter/reqq",
 ];
 
 export default async function Home() {
@@ -34,12 +34,14 @@ export default async function Home() {
 
   const issuesListProps = {
     repos: ALL_REPOS,
-    issues
+    issues,
   };
 
   return (
     <div class="container mx-auto px-4">
-      <h1 class="sm:text-4xl text-2xl font-bold mb-4 text-center md:text-left">Contribute to devICT</h1>
+      <h1 class="sm:text-4xl text-2xl font-bold mb-4 text-center md:text-left">
+        Contribute to devICT
+      </h1>
       <div class="grid grid-cols-4 gap-4">
         <div class="md:col-span-3 col-span-4">
           <IssuesList {...issuesListProps} />
@@ -48,7 +50,11 @@ export default async function Home() {
           <div class="mb-4">
             <RepoList title="DevICT Repos" list={DEVICT_REPOS} />
           </div>
-          <RepoList title="ICT Communty Repos" list={COMMUNITY_REPOS} shuffleList={true} />
+          <RepoList
+            title="ICT Communty Repos"
+            list={COMMUNITY_REPOS}
+            shuffleList={true}
+          />
         </div>
       </div>
     </div>

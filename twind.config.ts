@@ -8,11 +8,11 @@ export default {
     theme: {
       extend: {
         colors: {
-          'ict-orange': '#eb7f32'
+          "ict-orange": "#eb7f32",
         },
         fontSize: {
-          'xxs': '0.65rem'
-        }
+          "xxs": "0.65rem",
+        },
       },
     },
   }),

@@ -1,4 +1,4 @@
-import { ComponentChildren, JSX } from 'preact';
+import { ComponentChildren, JSX } from "preact";
 
 type CardProps = {
   title: string;
@@ -8,7 +8,9 @@ type CardProps = {
   children?: ComponentChildren;
 };
 
-const Card = ({ title, content, link, link_text="", children }: CardProps) => {
+const Card = (
+  { title, content, link, link_text = "", children }: CardProps,
+) => {
   return (
     <div class="bg-white rounded-lg shadow-lg p-6 flex flex-col justify-between items-stretch">
       <div>
@@ -17,10 +19,15 @@ const Card = ({ title, content, link, link_text="", children }: CardProps) => {
         {children}
       </div>
       {link && (
-        <a class='bg-ict-orange font-bold mt-4 px-4 py-2 text-white w-auto' href={link}>{link_text ? (link_text) : "Learn more"}</a>
+        <a
+          class="bg-ict-orange font-bold mt-4 px-4 py-2 text-white w-auto"
+          href={link}
+        >
+          {link_text ? link_text : "Learn more"}
+        </a>
       )}
     </div>
   );
-}
+};
 
 export default Card;
