@@ -7,7 +7,7 @@ export default function About() {
         <p class="text-4xl mb-4 max-w-4xl mx-auto">
           Wichita's software developer community
         </p>
-        <p class="text-xl mb-4 max-w-4xl mx-auto">
+        <p class="text-2xl mb-4 max-w-4xl mx-auto">
           <strong>devICT</strong> is a volunteer-run community aiming to{" "}
           <strong>educate, empower and connect</strong> software developers and
           technologists in the <strong>Wichita, KS</strong> area.
@@ -24,6 +24,7 @@ export default function About() {
         {[
           {
             title: `Who we are`,
+            title_size: `2xl`,
             content: [
               `We are a group of individuals who have a common interest in
                software development.`,
@@ -38,6 +39,7 @@ export default function About() {
           },
           {
             title: `What we do`,
+            title_size: `2xl`,
             content: [
               `Members of devICT have one common goal: to be better at what
                   we do. Our events and services are aimed at achieving that.`,
@@ -51,6 +53,7 @@ export default function About() {
           },
           {
             title: `Get involved!`,
+            title_size: `2xl`,
             content: [
               `Most of the time we are hanging out in Slack. To join, just
                fill out this form.`,
