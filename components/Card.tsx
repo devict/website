@@ -2,20 +2,29 @@ import { ComponentChildren, JSX } from "preact";
 
 type CardProps = {
   title: string;
-  content?: string | JSX.Element;
+  content?: string | JSX.Element | (string | JSX.Element)[];
   link?: string;
   link_text?: string;
   children?: ComponentChildren;
 };
 
-const Card = (
-  { title, content, link, link_text = "", children }: CardProps,
-) => {
+const Card = ({
+  title,
+  content,
+  link,
+  link_text = "",
+  children,
+}: CardProps) => {
   return (
     <div class="bg-white rounded-lg shadow-lg p-6 flex flex-col justify-between items-stretch">
       <div>
         <h3 class="text-xl font-medium mb-2">{title}</h3>
-        {content && <p class="text-md mb-2">{content}</p>}
+        {content && !Array.isArray(content) && (
+          <p class="text-md mb-2">{content}</p>
+        )}
+        {content &&
+          Array.isArray(content) &&
+          content.map((para) => <p class="mb-4">{para}</p>)}
         {children}
       </div>
       {link && (

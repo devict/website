@@ -1,15 +1,16 @@
-import { AppProps } from "$fresh/server.ts";
+import { PageProps } from "$fresh/server.ts";
 import Header from "../islands/Header.tsx";
 import Footer from "../islands/Footer.tsx";
 
 const nav = [
-  { name: "Home", href: "/" },
+  { name: "About", href: "/about" },
+  { name: "Contribute", href: "/contribute" },
   { name: "Projects", href: "/projects" },
   { name: "Speak", href: "/speak" },
   { name: "Donate", href: "https://devict.org/support" },
 ];
 
-export default function App({ Component, route }: AppProps) {
+export default function App({ Component, route }: PageProps) {
   return (
     <html>
       <head>
