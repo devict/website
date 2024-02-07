@@ -20,22 +20,16 @@ export default async function Home() {
     <div class="container mx-auto px-8">
       <div class="text-center">
         <p class="text-4xl mb-4 max-w-4xl mx-auto">
-          Wichita's software developer community
+          Join the fun, reap the rewards
         </p>
-        <p class="text-xl mb-4 max-w-4xl mx-auto">
-          <strong>devICT</strong> is a volunteer-run community aiming to{" "}
-          <strong>educate, empower and connect</strong> software developers and
-          technologists in the <strong>Wichita, KS</strong> area.
+        <p class="text-2xl mb-4 max-w-4xl mx-auto">
+          No matter your background or skill level, we have ways to get
+          involved.
         </p>
         <hr class="my-8 mx-auto max-w-md" />
-        <p class="text-2xl max-w-4xl mx-auto mb-16">
-          Whether you are new to the field, or an experienced engineer, devICT
-          offers multiple avenues for you to engage, contribute, and grow your
-          skillset as a technologist.
-        </p>
       </div>
 
-      <h2 class="text-3xl font-semibold my-8">Why</h2>
+      <h2 class="text-3xl font-semibold my-8">Why contribute?</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-4 justify-center">
         {[
           {
@@ -59,7 +53,7 @@ export default async function Home() {
         ))}
       </div>
 
-      <h2 class="text-3xl font-semibold my-8">How</h2>
+      <h2 class="text-3xl font-semibold my-8">How to contribute?</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-4 justify-center">
         {[
           {

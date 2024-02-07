@@ -2,6 +2,7 @@ import { ComponentChildren, JSX } from "preact";
 
 type CardProps = {
   title: string;
+  title_size?: "lg" | "xl" | "2xl" | "3xl";
   content?: string | JSX.Element | (string | JSX.Element)[];
   link?: string;
   link_text?: string;
@@ -11,6 +12,7 @@ type CardProps = {
 const Card = ({
   title,
   content,
+  title_size = "xl",
   link,
   link_text = "",
   children,
@@ -18,7 +20,7 @@ const Card = ({
   return (
     <div class="bg-white rounded-lg shadow-lg p-6 flex flex-col justify-between items-stretch">
       <div>
-        <h3 class="text-xl font-medium mb-2">{title}</h3>
+        <h3 class={`text-${title_size} font-medium mb-2`}>{title}</h3>
         {content && !Array.isArray(content) && (
           <p class="text-md mb-2">{content}</p>
         )}
