@@ -23,8 +23,7 @@ export default async function Home() {
           Join the fun, reap the rewards
         </p>
         <p class="text-2xl mb-4 max-w-4xl mx-auto">
-          No matter your background or skill level, we have ways to get
-          involved.
+          There's a lot to gain from contributing, and many ways to do it.
         </p>
         <hr class="my-8 mx-auto max-w-md" />
       </div>
@@ -37,19 +36,19 @@ export default async function Home() {
             content: `Working on real-world projects exposes you to new technologies and best practices.`,
           },
           {
-            title: `Portfolio Building`,
+            title: `Build Portfolio`,
             content: `Your contributions get recorded on GitHub, providing tangible proof of your skills.`,
           },
           {
-            title: `Learning and Networking`,
+            title: `Build Network`,
             content: `Interacting with the community offers immense learning opportunities and widens your professional network.`,
           },
           {
-            title: `Giving Back`,
+            title: `Build Community`,
             content: `By contributing, you help grow the local tech scene and create a richer environment for everyone involved.`,
           },
         ].map((card) => (
-          <Card {...card} />
+          <Card {...card} title_size="xl" />
         ))}
       </div>
 
@@ -73,7 +72,7 @@ export default async function Home() {
               </>
             ),
             link: "https://slack.devict.org/",
-            link_text: "Sign Up",
+            link_text: "Join Slack",
           },
           {
             title: "Contribute to a Project",
@@ -102,11 +101,13 @@ export default async function Home() {
             external: true,
           },
           {
-            title: `Financial Support`,
+            title: `Support Financially`,
             content: `Donations help us keep the lights on and fund community events. Every bit counts!`,
+            link: "/support",
+            link_text: "Donate",
           },
         ].map((card) => (
-          <Card {...card} />
+          <Card {...card} title_size="xl" />
         ))}
       </div>
       <h2 class="text-3xl font-semibold my-8">Contributors</h2>
