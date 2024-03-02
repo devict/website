@@ -5,8 +5,8 @@ import Footer from "../islands/Footer.tsx";
 const nav = [
   { name: "About", href: "/about" },
   { name: "Conduct", href: "/conduct" },
-  { name: "Events", href: "https://meetup.com/devict" },
-  { name: "Jobs", href: "https://jobs.devict.org" },
+  { name: "Events", href: "https://meetup.com/devict", target: "_blank" },
+  { name: "Jobs", href: "https://jobs.devict.org", target: "_blank" },
   { name: "Projects", href: "/projects" },
   { name: "Support", href: "https://devict.org/support" },
 ];
@@ -37,10 +37,19 @@ export default function App({ Component, route }: PageProps) {
         <link rel="manifest" href="/manifest.json" />
         {/* <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#eb7e32" /> */}
         <link rel="shortcut icon" href="/favicon.ico" />
+        <style>{`
+          @font-face {
+            font-family: "Source Code Pro";
+            font-style: normal;
+            font-weight: 400;
+            font-display: swap;
+            src: url("/fonts/SourceCodePro-Regular.ttf") format("ttf");
+          }
+        `}</style>
 
         <title>Contribute &middot; devICT</title>
       </head>
-      <body class="bg-[url('/cream_pixels.png')] bg-repeat">
+      <body class="bg-[url('/cream_pixels.png')] bg-repeat font-sans">
         <Header active={route} nav={nav} />
         <div class="pb-8 mx-auto">
           <div class="max-w-screen-xl mx-auto flex flex-col">

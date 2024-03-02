@@ -3,7 +3,7 @@ import { useState } from "preact/hooks";
 
 type Props = {
   active: string;
-  nav: { name: string; href: string }[];
+  nav: { name: string; href: string; target?: string }[];
 };
 
 export default function Header({ active, nav }: Props) {
@@ -32,6 +32,7 @@ export default function Header({ active, nav }: Props) {
             <li class="text-right pb-1 border-b-1 border-slate-100 hover:border-slate-200 rounded flex-none">
               <a
                 href={item.href}
+                target={item.target ?? ""}
                 class={
                   "text-gray-500 hover:text-gray-700 py-1 border-gray-500" +
                   (item.href === active ? " font-bold border-b-2" : "")
@@ -48,6 +49,7 @@ export default function Header({ active, nav }: Props) {
           <li>
             <a
               href={item.href}
+              target={item.target ?? ""}
               class={
                 "text-gray-500 hover:text-gray-700 hover:border-gray-600 hover:border-b-1 py-1 border-gray-500" +
                 (item.href === active ? " border-b-1" : "")
