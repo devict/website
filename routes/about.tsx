@@ -5,9 +5,9 @@ export default function About() {
   return (
     <div class="container mx-auto px-8">
       <div class="text-center">
-        <p class="text-4xl mb-4 max-w-4xl mx-auto">
+        <h2 class="text-4xl mb-4 max-w-4xl mx-auto">
           Wichita's software developer community
-        </p>
+        </h2>
         <p class="text-2xl mb-4 max-w-4xl mx-auto">
           <strong>devICT</strong> is a volunteer-run community aiming to{" "}
           <strong>educate, empower and connect</strong> software developers and

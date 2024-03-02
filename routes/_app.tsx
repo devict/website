@@ -8,7 +8,7 @@ const nav = [
   { name: "Events", href: "https://meetup.com/devict", target: "_blank" },
   { name: "Jobs", href: "https://jobs.devict.org", target: "_blank" },
   { name: "Projects", href: "/projects" },
-  { name: "Support", href: "https://devict.org/support" },
+  { name: "Support", href: "/support" },
 ];
 
 export default function App({ Component, route }: PageProps) {
