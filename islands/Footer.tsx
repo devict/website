@@ -16,7 +16,7 @@ export const Footer = () => {
             class="text-md font-medium underline text-blue-600 hover:text-blue-800 visited:text-purple-600"
           >
             <span class="flex items-center gap-1">
-              Github
+              GitHub
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -34,10 +34,18 @@ export const Footer = () => {
         </span>
         <span class="inline-block">
           <a
-            href="/report"
+            href="/conduct"
             class="text-md font-medium underline text-blue-600 hover:text-blue-800 visited:text-purple-600"
           >
-            Report a Code of Conduct Incident
+            Code of Conduct
+          </a>
+        </span>
+        <span class="inline-block">
+          <a
+            href="/conduct#report-an-incident"
+            class="text-md font-medium underline text-blue-600 hover:text-blue-800 visited:text-purple-600"
+          >
+            Report an Incident
           </a>
         </span>
       </div>
