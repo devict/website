@@ -4,7 +4,9 @@ import Footer from "../islands/Footer.tsx";
 
 const nav = [
   { name: "About", href: "/about" },
+  { name: "Conduct", href: "/conduct" },
   { name: "Events", href: "https://meetup.com/devict" },
+  { name: "Jobs", href: "https://jobs.devict.org" },
   { name: "Projects", href: "/projects" },
   { name: "Support", href: "https://devict.org/support" },
 ];
