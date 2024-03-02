@@ -1,13 +1,13 @@
-type FooterProps = {
-  title: string;
-  content: string | JSX.Element;
-};
+// type FooterProps = {
+//   title: string;
+//   content: string | JSX.Element;
+// };
 
 export const Footer = () => {
   return (
     <div class="container mx-auto px-8 mb-8">
       <hr class="mx-auto my-8 max-w-md" />
-      <div class="text-center">
+      <div class="text-center flex flex-row gap-4 justify-center">
         <span class="inline-block">
           <a
             href="https://github.com/devict/help"
@@ -30,6 +30,14 @@ export const Footer = () => {
                 />
               </svg>
             </span>
+          </a>
+        </span>
+        <span class="inline-block">
+          <a
+            href="/report"
+            class="text-md font-medium underline text-blue-600 hover:text-blue-800 visited:text-purple-600"
+          >
+            Report a Code of Conduct Incident
           </a>
         </span>
       </div>
