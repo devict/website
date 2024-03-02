@@ -4,10 +4,9 @@ import Footer from "../islands/Footer.tsx";
 
 const nav = [
   { name: "About", href: "/about" },
-  { name: "Contribute", href: "/contribute" },
+  { name: "Events", href: "https://meetup.com/devict" },
   { name: "Projects", href: "/projects" },
-  { name: "Speak", href: "/speak" },
-  { name: "Donate", href: "https://devict.org/support" },
+  { name: "Support", href: "https://devict.org/support" },
 ];
 
 export default function App({ Component, route }: PageProps) {
