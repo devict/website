@@ -9,6 +9,7 @@ import * as $conduct from "./routes/conduct.tsx";
 import * as $index from "./routes/index.tsx";
 import * as $projects from "./routes/projects.tsx";
 import * as $report from "./routes/report.ts";
+import * as $support from "./routes/support.tsx";
 import * as $Footer from "./islands/Footer.tsx";
 import * as $Header from "./islands/Header.tsx";
 import * as $IssuesList from "./islands/IssuesList.tsx";
@@ -23,6 +24,7 @@ const manifest = {
     "./routes/index.tsx": $index,
     "./routes/projects.tsx": $projects,
     "./routes/report.ts": $report,
+    "./routes/support.tsx": $support,
   },
   islands: {
     "./islands/Footer.tsx": $Footer,
