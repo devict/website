@@ -1,3 +1,4 @@
+import { FunctionComponent } from "preact";
 import Card from "../components/Card.tsx";
 
 export default function About() {
@@ -70,6 +71,105 @@ export default function About() {
           <Card {...card} />
         ))}
       </div>
+
+      <hr class="my-8 mt-16" />
+
+      <div class="my-8">
+        <div class="text-center justift-center">
+          <h1 class="text-3xl my-4">Organizers</h1>
+          <p class="text-lg md:max-w-4xl mx-auto">
+            The devICT Institute is a 501c3 non-profit governed by a board of
+            directors. In addition to the board we are supported by volunteers
+            who organize events and generally keep things running.
+          </p>
+        </div>
+
+        <h2 class="text-2xl mt-8">Board of Directors</h2>
+        <div class="grid gap-4 grid-cols-2 md:grid-cols-3 lg:grid-cols-5 justify-center mt-4">
+          <VolunteerCard
+            name="Seth Etter"
+            slackId="U02T9190X"
+            imageUrl="/img/leadership/seth-etter.jpg"
+          />
+          <VolunteerCard
+            name="Christen Lofland"
+            slackId="U02TG0SGZ"
+            imageUrl="/img/leadership/christen-lofland.jpg"
+          />
+          <VolunteerCard
+            name="Michael Neth"
+            slackId="U02V81GGA"
+            imageUrl="/img/leadership/michael-neth.jpg"
+          />
+          <VolunteerCard
+            name="Kevin Elledge"
+            slackId="U03EGDSPD"
+            imageUrl="/img/leadership/kevin-elledge.jpg"
+          />
+          <VolunteerCard
+            name="Josh Dutcher"
+            slackId="U02U2QUAL"
+            imageUrl="/img/leadership/josh-dutcher.jpg"
+          />
+        </div>
+        <h2 class="text-2xl mt-8">Event Hosts and Volunteers</h2>
+        <p></p>
+
+        <div class="grid gap-4 grid-cols-2 md:grid-cols-3 lg:grid-cols-5 justify-center mt-4">
+          <VolunteerCard
+            name="Brian Buller"
+            role="Code & Coffee Host"
+            slackId="U030RD9NU"
+            imageUrl="/img/leadership/brian-buller.jpg"
+          />
+          <VolunteerCard
+            name="Brian Foster"
+            role="Game Jam Organizer"
+            slackId="U03TRPHR0"
+            imageUrl="/img/leadership/brian-foster.jpg"
+          />
+        </div>
+      </div>
     </div>
   );
 }
+
+interface VolunteerCardProps {
+  name: string;
+  role?: string;
+  imageUrl: string;
+  slackId: string;
+}
+const VolunteerCard: FunctionComponent<VolunteerCardProps> = ({
+  name,
+  role,
+  imageUrl,
+  slackId,
+}) => {
+  return (
+    <div>
+      <figure class="figure">
+        <img src={imageUrl} class="rounded" alt={`Image of ${name}`} />
+        <figcaption class="figure-caption">
+          <strong>{name}</strong>
+          {role ? (
+            <>
+              <br />
+              {role}
+            </>
+          ) : (
+            <></>
+          )}
+          <br />
+          <a
+            href={`https://slack.com/app_redirect?channel=${slackId}`}
+            target="blank"
+            class="font-medium text-orange-500 dark:text-orange-600 hover:underline"
+          >
+            Contact on Slack
+          </a>
+        </figcaption>
+      </figure>
+    </div>
+  );
+};
