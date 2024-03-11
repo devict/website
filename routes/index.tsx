@@ -20,7 +20,7 @@ export default async function Home() {
   return (
     <div class="container mx-auto px-8">
       <div class="text-center">
-        <h1 class="text-4xl mb-4 max-w-4xl mx-auto">
+        <h1 class="text-4xl mb-4 max-w-4xl mx-auto font-bold">
           Wichita's software developer community
         </h1>
         <h2 class="text-xl mb-4 max-w-4xl mx-auto">
