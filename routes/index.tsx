@@ -70,26 +70,37 @@ export default async function Home() {
           </p>
         </div>
       </div>
-      <div class="py-4">
-        <h2 class="text-2xl text-center my-8 font-bold">
-          We are supported by these great orgs
-        </h2>
-      </div>
-      <div class="flex flex-col gap-4 px-8 md:px-2 md:flex-row md:gap-8">
-        <div class="flex-1 pt-2">
-          <img src="/img/logos/grooverlabs-bw.png" />
-        </div>
-        <div class="flex-1">
-          <img src="/img/logos/moonbaselabs.svg" />
-        </div>
-        <div class="flex-1 pt-4">
-          <img src="/img/logos/quilibrium.svg" />
-        </div>
-      </div>
 
-      <hr class="my-12 md:my-24" />
+      <hr class="my-12" />
 
       <Contribute contributors={contributors} />
+
+      <div class="py-4">
+        <h2 class="text-2xl text-center my-8 font-bold">
+          In addition to our community members, we are supported by these great
+          organizations.
+        </h2>
+      </div>
+      <div class="flex flex-col gap-4 px-8 md:px-[100px] md:flex-row md:gap-8">
+        <div class="flex-1 pt-2">
+          <img
+            src="/img/logos/grooverlabs-bw.png"
+            class="opacity-50 hover:opacity-75"
+          />
+        </div>
+        <div class="flex-1">
+          <img
+            src="/img/logos/moonbaselabs.svg"
+            class="opacity-50 hover:opacity-75"
+          />
+        </div>
+        <div class="flex-1 pt-4">
+          <img
+            src="/img/logos/quilibrium.svg"
+            class="opacity-50 hover:opacity-75"
+          />
+        </div>
+      </div>
     </div>
   );
 }
