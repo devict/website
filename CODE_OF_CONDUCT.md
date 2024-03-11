@@ -14,7 +14,7 @@ Harassment includes offensive written or verbal comments or imagery related to g
 
 If a participant engages in harassing behaviour, the devICT board or event hosts may take any action they deem appropriate, including warning the offender, expulsion from the event, and/or expulsion from devICT digital spaces.
 
-If you are being harassed, notice that someone else is being harassed, or have any other concerns, please contact a devICT board member or event host immediately. (TODO: how to quick find one of these individuals)
+If you are being harassed, notice that someone else is being harassed, or have any other concerns, please contact a devICT board member or event host immediately. Photos and contact information can be found on [our about page](https://devict.org/about).
 
 devICT board members and event hosts will be happy to help participants contact security or local law enforcement, provide escorts, or otherwise assist those experiencing harassment to feel safe for the duration of the meetup. We value your attendance.
 
