@@ -1,6 +1,6 @@
 import { ComponentChildren, JSX } from "preact";
 
-type CardProps = {
+export type CardProps = {
   title: string;
   title_size?: "lg" | "xl" | "2xl" | "3xl";
   content?: string | JSX.Element | (string | JSX.Element)[];
