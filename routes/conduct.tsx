@@ -1,6 +1,7 @@
 import { CSS, render } from "$gfm";
 import { Head } from "$fresh/runtime.ts";
 import ConductReportForm from "../components/ConductReportForm.tsx";
+import { title } from "../lib/title.ts";
 
 const cocMarkdown = await Deno.readTextFile("./CODE_OF_CONDUCT.md");
 
@@ -23,13 +24,15 @@ through the servers at formspree.io.
     <>
       <Head>
         <style dangerouslySetInnerHTML={{ __html: CSS }} />
+        <title>{title("Code of Conduct")}</title>
       </Head>
       <div class="container mx-auto my-8">
         <div
           class="markdown-body"
           style={{ backgroundColor: "transparent" }}
           dangerouslySetInnerHTML={{ __html: cocHtml }}
-        ></div>
+        >
+        </div>
         <div class="my-4">
           <ConductReportForm />
         </div>

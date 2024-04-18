@@ -1,6 +1,7 @@
 import { PageProps } from "$fresh/server.ts";
 import Header from "../islands/Header.tsx";
 import Footer from "../islands/Footer.tsx";
+import { title } from "../lib/title.ts";
 
 const nav = [
   { name: "About", href: "/about" },
@@ -49,7 +50,7 @@ export default function App({ Component, route }: PageProps) {
         `}
         </style>
 
-        <title>Contribute &middot; devICT</title>
+        <title>{title()}</title>
       </head>
       <body class="bg-[url('/cream_pixels.png')] bg-repeat font-sans">
         <Header active={route} nav={nav} />
