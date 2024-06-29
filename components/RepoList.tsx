@@ -3,7 +3,7 @@ import Card from "../components/Card.tsx";
 type RepoListProps = {
   title: string;
   list: string[];
-  shuffleList: boolean;
+  shuffleList?: boolean;
 };
 
 const shuffle = (array: string[]) => {
