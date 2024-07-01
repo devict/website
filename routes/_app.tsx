@@ -38,6 +38,7 @@ export default function App({ Component, route }: PageProps) {
         <link rel="manifest" href="/manifest.json" />
         {/* <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#eb7e32" /> */}
         <link rel="shortcut icon" href="/favicon.ico" />
+        <link rel="stylesheet" href="/styles.css" />
         <style>
           {`
           @font-face {
