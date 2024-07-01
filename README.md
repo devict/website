@@ -1,14 +1,17 @@
 # devICT: Help
 
-This website aims to make it easy to find and act on different ways to be involved with and contribute to the devICT community.
+This website aims to make it easy to find and act on different ways to be
+involved with and contribute to the devICT community.
 
 ## Built with
 
 - [Deno](https://deno.land/manual/getting_started/installation)
   - A typescript-first node alternative with a much better developer experience.
 - [Fresh](https://fresh.deno.dev)
-  - A server-first react framework (well, [preact](https://preactjs.com/) really).
-  - Has tailwind built in (well, [twind](https://twind.style/) really).
+  - A server-first react framework (well, [preact](https://preactjs.com/)
+    really).
+  - Has tailwind built in (it's really
+    [available now in version 1.6](https://fresh.deno.dev/docs/examples/migrating-to-tailwind)).
 - Deployed to [Deno Deploy](https://deno.com/deploy).
 
 ## Developing locally
@@ -22,5 +25,6 @@ This website aims to make it easy to find and act on different ways to be involv
 ### Configuration
 
 - `GITHUB_TOKEN`, required for making GitHub API calls.
-  - Generate one from your [GitHub settings](https://github.com/settings/tokens?type=beta).
+  - Generate one from your
+    [GitHub settings](https://github.com/settings/tokens?type=beta).
   - Does not need any special permissions, it only accesses public information.

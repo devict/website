@@ -7,3 +7,6 @@
 
 # Fresh build directory
 _fresh/
+
+# Needed because of Tailwind (Fresh 1.6+)
+node_modules/
