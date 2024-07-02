@@ -24,7 +24,7 @@ involved with and contribute to the devICT community.
 
 ### Configuration
 
-- `GITHUB_TOKEN`, required for making GitHub API calls.
+- `APP_GITHUB_TOKEN`, required for making GitHub API calls.
   - Generate one from your
     [GitHub settings](https://github.com/settings/tokens?type=beta).
   - Does not need any special permissions, it only accesses public information.

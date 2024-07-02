@@ -14,7 +14,7 @@ const DEVICT_REPOS: string[] = [
 ];
 
 export default async function Home() {
-  const ghToken = Deno.env.get("GITHUB_TOKEN");
+  const ghToken = Deno.env.get("APP_GITHUB_TOKEN");
   assert(ghToken);
 
   const contributors = await fetchGitHubContributors(ghToken, DEVICT_REPOS);

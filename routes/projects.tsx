@@ -26,7 +26,7 @@ const COMMUNITY_REPOS: string[] = [
 
 export default async function Home() {
   const ALL_REPOS = DEVICT_REPOS.concat(COMMUNITY_REPOS);
-  const ghToken = Deno.env.get("GITHUB_TOKEN");
+  const ghToken = Deno.env.get("APP_GITHUB_TOKEN");
   assert(ghToken);
 
   const issues = await getHelpWantedIssues({
