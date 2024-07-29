@@ -52,6 +52,10 @@ export default function App({ Component, route }: PageProps) {
         </style>
 
         <title>{title()}</title>
+        <meta
+          name="description"
+          content="devICT is a Wichita, KS local community meetup group for anyone interested in programming, coding, software engineering, web development, or game development. We aim to educate, empower, and connect software developers in the Wichita, KS area."
+        />
       </head>
       <body class="bg-[url('/cream_pixels.png')] bg-repeat font-sans">
         <Header active={route} nav={nav} />
