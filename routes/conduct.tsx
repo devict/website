@@ -1,4 +1,4 @@
-import { CSS, render } from "$gfm";
+import { CSS, render } from "@deno/gfm";
 import { Head } from "$fresh/runtime.ts";
 import ConductReportForm from "../components/ConductReportForm.tsx";
 import { title } from "../lib/title.ts";

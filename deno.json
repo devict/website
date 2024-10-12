@@ -7,35 +7,28 @@
     "preview": "deno run -A main.ts",
     "update": "deno run -A -r https://fresh.deno.dev/update ."
   },
-  "lint": {
-    "rules": {
-      "tags": [
-        "fresh",
-        "recommended"
-      ]
-    }
-  },
-  "exclude": [
-    "**/_fresh/*"
-  ],
-  "nodeModulesDir": true,
+  "lint": { "rules": { "tags": ["fresh", "recommended"] } },
+  "exclude": ["**/_fresh/*"],
+  "nodeModulesDir": "auto",
   "imports": {
-    "$fresh/": "https://deno.land/x/fresh@1.6.8/",
-    "zod": "https://deno.land/x/zod@v3.22.4/mod.ts",
-    "preact": "https://esm.sh/preact@10.19.6",
-    "preact/": "https://esm.sh/preact@10.19.6/",
-    "preact-render-to-string": "https://esm.sh/*preact-render-to-string@6.2.2",
+    "$fresh/": "https://deno.land/x/fresh@1.7.2/",
+    "$std/": "https://deno.land/std@0.193.0/",
+    "@deno/gfm": "jsr:@deno/gfm@^0.9.0",
     "@preact/signals": "https://esm.sh/*@preact/signals@1.2.2",
     "@preact/signals-core": "https://esm.sh/*@preact/signals-core@1.5.1",
+    "preact": "https://esm.sh/preact@10.22.0",
+    "preact-render-to-string": "https://esm.sh/*preact-render-to-string@6.2.2",
+    "preact/": "https://esm.sh/preact@10.22.0/",
     "tabler_icons/": "https://deno.land/x/tabler_icons_tsx@0.0.3/tsx/",
-    "$std/": "https://deno.land/std@0.193.0/",
-    "$gfm": "https://deno.land/x/gfm@0.2.3/mod.ts",
     "tailwindcss": "npm:tailwindcss@3.4.1",
     "tailwindcss/": "npm:/tailwindcss@3.4.1/",
-    "tailwindcss/plugin": "npm:/tailwindcss@3.4.1/plugin.js"
+    "tailwindcss/plugin": "npm:/tailwindcss@3.4.1/plugin.js",
+    "zod": "https://deno.land/x/zod@v3.22.4/mod.ts"
   },
   "compilerOptions": {
     "jsx": "react-jsx",
-    "jsxImportSource": "preact"
-  }
+    "jsxImportSource": "preact",
+    "types": ["preact"]
+  },
+  "unstable": ["kv"]
 }
