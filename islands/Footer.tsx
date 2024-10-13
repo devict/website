@@ -13,7 +13,7 @@ export const Footer = () => {
             href="https://github.com/devict/help"
             target="_blank"
             rel="noopener noreferrer"
-            class="text-md font-medium underline text-blue-600 hover:text-blue-800 visited:text-purple-600"
+            class="text-md font-medium"
           >
             <span class="flex items-center gap-1">
               GitHub
@@ -35,7 +35,7 @@ export const Footer = () => {
         <span class="inline-block">
           <a
             href="/conduct"
-            class="text-md font-medium underline text-blue-600 hover:text-blue-800 visited:text-purple-600"
+            class="text-md font-medium"
           >
             Code of Conduct
           </a>
@@ -43,7 +43,7 @@ export const Footer = () => {
         <span class="inline-block">
           <a
             href="/conduct#report-an-incident"
-            class="text-md font-medium underline text-blue-600 hover:text-blue-800 visited:text-purple-600"
+            class="text-md font-medium"
           >
             Report an Incident
           </a>

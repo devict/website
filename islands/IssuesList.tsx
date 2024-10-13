@@ -26,8 +26,11 @@ const IssuesList = ({ repos, issues }: Props) => {
     return (
       <span
         onClick={() => setLabelFilter(label)}
-        style={"background-color: #".concat(label.color)}
-        class="cursor-pointer font-bold mr-1 mb-1 w-fit px-2 py-[0.125rem] rounded-xl text-white text-xxs whitespace-nowrap hover:text-black"
+        style={{
+          backgroundColor: `#${label.color}`,
+          color: parseInt(label.color, 16) > 0xffffff / 2 ? "#000" : "#fff",
+        }}
+        class="cursor-pointer font-semibold mr-1 px-2 py-[0.125rem] rounded-full text-[10px] whitespace-nowrap hover:opacity-80 transition-opacity"
       >
         {label.name}
       </span>
@@ -46,50 +49,71 @@ const IssuesList = ({ repos, issues }: Props) => {
       return !(isFilteredByRepo || isFilteredByLabel);
     }), [issues, repoFilter, labelFilter]);
 
+  const groupedIssues = useMemo(() => {
+    const groups: Record<string, GitHubIssue[]> = {};
+    filteredIssues.forEach((issue) => {
+      const repoPath = issueRepoPath(issue);
+      if (!groups[repoPath]) {
+        groups[repoPath] = [];
+      }
+      groups[repoPath].push(issue);
+    });
+    return groups;
+  }, [filteredIssues]);
+
   return (
     <Card title="Current Issues">
-      <div class="flex justify-between my-4">
-        <div>
+      <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center my-4">
+        <div class="flex flex-col sm:flex-row items-start sm:items-center mb-2 sm:mb-0">
           <select
-            class="w-full md:w-auto px-4 py-2 mb-2 md:mb-0"
+            class="w-full sm:w-auto px-3 py-2 mb-2 sm:mb-0 sm:mr-4 border border-gray-300 rounded-md bg-white text-gray-700 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
             value={repoFilter}
             onChange={(e) => setRepoFilter(e.currentTarget.value)}
           >
             <option value={NO_FILTER}>Filter by Repo</option>
             {repos.map((repo) => <option value={repo}>{repo}</option>)}
           </select>
-          <span class="ml-4">
+          <span class="text-sm text-gray-600">
             {labelFilter
               ? <>Labeled with: {showLabel({ ...labelFilter })}</>
-              : (
-                "Click a label to filter issues"
-              )}
+              : "Click a label to filter issues"}
           </span>
         </div>
+        {(repoFilter !== NO_FILTER || labelFilter) && (
+          <button
+            type="button"
+            onClick={clearFilters}
+            class="px-3 py-1 bg-gray-200 text-gray-700 text-sm rounded-md hover:bg-gray-300 transition-colors"
+          >
+            Clear Filters
+          </button>
+        )}
       </div>
-      {(repoFilter !== NO_FILTER || labelFilter) && (
-        <button type="button" onClick={clearFilters} class="bg-zinc-200 px-4">
-          Clear Filters
-        </button>
-      )}
-      <ul class="list-none">
-        {filteredIssues.map((issue) => (
-          <li class="my-3">
-            <div class="underline hover:text-gray-600">
-              <a
-                href={issue.html_url}
-                class="underline text-blue-600 hover:text-blue-800 visited:text-purple-600"
-              >
-                <span class="font-bold">{issueRepoPath(issue)}:</span>{" "}
-                {issue.title}
-              </a>
-            </div>
-            <div class="flex flex-wrap">
-              {issue.labels.map((label) => showLabel(label))}
-            </div>
-          </li>
+      <div class="space-y-6">
+        {Object.entries(groupedIssues).map(([repoPath, repoIssues]) => (
+          <div key={repoPath}>
+            <h3 class="font-bold text-lg text-gray-800 mb-2">{repoPath}</h3>
+            <ul class="list-none space-y-2">
+              {repoIssues.map((issue) => (
+                <li
+                  key={issue.number}
+                  class="flex items-center justify-between"
+                >
+                  <a
+                    href={issue.html_url}
+                    class="transition-colors flex-grow mr-2"
+                  >
+                    {issue.title}
+                  </a>
+                  <div class="flex flex-wrap justify-end">
+                    {issue.labels.map((label) => showLabel(label))}
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
         ))}
-      </ul>
+      </div>
     </Card>
   );
 };
