@@ -28,3 +28,9 @@ involved with and contribute to the devICT community.
   - Generate one from your
     [GitHub settings](https://github.com/settings/tokens?type=beta).
   - Does not need any special permissions, it only accesses public information.
+
+## Deployment
+
+The site is deployed to [Deno Deploy](https://dash.deno.com). Commits to main are deployed by [this github workflow](https://github.com/devict/help/tree/main/.github/workflows/deploy.yml).
+
+To update the `APP_GITHUB_TOKEN` in Deno Deploy, you must use the UI, as their CLI does not support updating project-level secrets (only providing per-deployment env vars via `deployctl deploy --env ...`).
