@@ -57,7 +57,7 @@ export default async function Home() {
               <RepoList title="DevICT Repos" list={DEVICT_REPOS} />
             </div>
             <RepoList
-              title="ICT Communty Repos"
+              title="ICT Community Repos"
               list={COMMUNITY_REPOS}
               shuffleList={true}
             />
