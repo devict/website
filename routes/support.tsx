@@ -41,7 +41,7 @@ export default function Support() {
               If you want to help but do not want to set up a recurring donation
               you can give a single amount using{" "}
               <a
-                href="https://www.paypal.com/ncp/payment/F4GL83F4M34QL"
+                href="https://www.paypal.com/donate/?hosted_button_id=Z6AJQMBWNY7ZA"
                 title="Donate to devICT"
               >
                 PayPal or Venmo
