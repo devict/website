@@ -6,8 +6,8 @@ import { Head } from "$fresh/runtime.ts";
 import { title } from "../lib/title.ts";
 
 const DEVICT_REPOS: string[] = [
+  "devict/website",
   "devict/job-board",
-  "devict/devict.org",
   "devict/keeper",
   "devict/hacktoberfest",
   "devict/help",
