@@ -11,7 +11,7 @@
   "exclude": ["**/_fresh/*"],
   "nodeModulesDir": "auto",
   "imports": {
-    "$fresh/": "https://deno.land/x/fresh@1.7.2/",
+    "$fresh/": "https://deno.land/x/fresh@1.7.3/",
     "$std/": "https://deno.land/std@0.193.0/",
     "@deno/gfm": "jsr:@deno/gfm@^0.9.0",
     "@preact/signals": "https://esm.sh/*@preact/signals@1.2.2",
