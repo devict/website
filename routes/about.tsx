@@ -54,28 +54,26 @@ export default function About() {
             </p>
           </div>
 
-          <h2 class="mt-8 text-2xl">Board of Directors</h2>
+          <h2 class="mt-8 text-2xl">Board &amp; Volunteers</h2>
           <div class="mt-4 grid grid-cols-2 justify-center gap-4 md:grid-cols-3 lg:grid-cols-5">
             <VolunteerCard
               name="Seth Etter"
+              role="Board of Directors"
               slackId="U02T9190X"
               imageUrl="/img/leadership/seth-etter.jpg"
             />
             <VolunteerCard
               name="Christen Lofland"
+              role="Board of Directors"
               slackId="U02TG0SGZ"
               imageUrl="/img/leadership/christen-lofland.jpg"
             />
             <VolunteerCard
               name="Michael Neth"
+              role="Board of Directors"
               slackId="U02V81GGA"
               imageUrl="/img/leadership/michael-neth.jpg"
             />
-          </div>
-          <h2 class="mt-8 text-2xl">Event Hosts and Volunteers</h2>
-          <p></p>
-
-          <div class="mt-4 grid grid-cols-2 justify-center gap-4 md:grid-cols-3 lg:grid-cols-5">
             <VolunteerCard
               name="Brian Buller"
               role="Code & Coffee Host"
