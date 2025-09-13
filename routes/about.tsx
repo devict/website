@@ -71,11 +71,6 @@ export default function About() {
               slackId="U02V81GGA"
               imageUrl="/img/leadership/michael-neth.jpg"
             />
-            <VolunteerCard
-              name="Kevin Elledge"
-              slackId="U03EGDSPD"
-              imageUrl="/img/leadership/kevin-elledge.jpg"
-            />
           </div>
           <h2 class="mt-8 text-2xl">Event Hosts and Volunteers</h2>
           <p></p>
