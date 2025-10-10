@@ -11,6 +11,7 @@ import * as $index from "./routes/index.tsx";
 import * as $learn from "./routes/learn.tsx";
 import * as $projects from "./routes/projects.tsx";
 import * as $report from "./routes/report.ts";
+import * as $slack from "./routes/slack.ts";
 import * as $support from "./routes/support.tsx";
 import * as $Footer from "./islands/Footer.tsx";
 import * as $Header from "./islands/Header.tsx";
@@ -29,6 +30,7 @@ const manifest = {
     "./routes/learn.tsx": $learn,
     "./routes/projects.tsx": $projects,
     "./routes/report.ts": $report,
+    "./routes/slack.ts": $slack,
     "./routes/support.tsx": $support,
   },
   islands: {
