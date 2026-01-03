@@ -20,8 +20,6 @@ const COMMUNITY_REPOS: string[] = [
   "imacrayon/snowbodyknows",
   "imacrayon/whatthetofu",
   "kentonh/ProjectNameGenerator",
-  "sethetter/linktrap",
-  "sethetter/reqq",
 ];
 
 export default async function Home() {
