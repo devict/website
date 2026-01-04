@@ -1,0 +1,25 @@
+<header class="header">
+  <div class="header-content">
+    <a href="/" class="logo">
+      <img src="/devict-logo.svg" alt="devICT logo">
+    </a>
+    <button class="nav-toggle" aria-label="Toggle navigation" onclick="document.querySelector('.nav-menu').classList.toggle('open')">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="3" y1="12" x2="21" y2="12"></line>
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+    </button>
+    <nav class="nav-menu">
+      <ul>
+        {% for item in navigation %}
+        <li>
+          <a href="{{ item.href }}"{% if item.external %} target="_blank" rel="noopener noreferrer"{% endif %}{% if page.url == item.href %} class="active"{% endif %}>
+            {{ item.name }}
+          </a>
+        </li>
+        {% endfor %}
+      </ul>
+    </nav>
+  </div>
+</header>

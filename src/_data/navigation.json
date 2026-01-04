@@ -1,0 +1,7 @@
+[
+  { "name": "About", "href": "/about/" },
+  { "name": "Events", "href": "https://meetup.com/devict", "external": true },
+  { "name": "Jobs", "href": "https://jobs.devict.org", "external": true },
+  { "name": "Support", "href": "/support/" },
+  { "name": "Conduct", "href": "/conduct/" }
+]
