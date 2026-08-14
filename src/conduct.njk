@@ -3,7 +3,7 @@ layout: layouts/base.njk
 title: Code of Conduct
 ---
 
-<div class="markdown-body my-8">
+<div class="markdown-body">
   <h1>Code of Conduct</h1>
 
   <p>All individuals participating in any devICT sanctioned space, whether in-person or online, are required to agree with the following code of conduct. This includes attendees, volunteers, speakers, sponsors, and members of the devICT board. Organizers will enforce this code whenever deemed appropriate. We expect cooperation from all participants to help ensure a safe and welcoming environment for everybody.</p>
@@ -31,18 +31,14 @@ title: Code of Conduct
   <p>You may use this form to anonymously report an incident that may have violated our Code of Conduct. The report will go to the devICT Board of Directors. The report goes through the servers at formspree.io.</p>
 </div>
 
-<div class="my-4">
-  <form action="https://formspree.io/f/mwkwyady" method="POST">
-    <div class="form-group">
-      <label for="report" class="text-sm mb-2" style="display: block;">Describe what happened, providing any detail that may help the devICT board in addressing the situation.</label>
-      <textarea name="report" class="form-textarea"></textarea>
-    </div>
-    <div class="my-4">
-      <p class="text-sm">If you want a response from the board, please leave some kind of contact information here.</p>
-    </div>
-    <div class="form-row">
-      <input name="from" type="text" class="form-input" placeholder="Anonymous" style="max-width: 200px;">
-      <input type="submit" class="form-submit" value="Send">
-    </div>
-  </form>
-</div>
+<form action="https://formspree.io/f/mwkwyady" method="POST">
+  <div class="form-group">
+    <label for="report">Describe what happened, providing any detail that may help the devICT board in addressing the situation.</label>
+    <textarea name="report" id="report" class="form-textarea"></textarea>
+  </div>
+  <p>If you want a response from the board, please leave some kind of contact information here.</p>
+  <div class="form-row">
+    <input name="from" type="text" class="form-input" placeholder="Anonymous">
+    <input type="submit" class="form-submit" value="Send">
+  </div>
+</form>
