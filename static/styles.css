@@ -25,7 +25,7 @@ img {
   --color-orange-hover: #ea580c;
   --color-gray-500: #6b7280;
   --color-gray-700: #374151;
-  --max-width: 1280px;
+  --max-width: 56rem;
 }
 
 /* Base */
@@ -206,41 +206,11 @@ hr {
   margin-top: 1rem;
 }
 
-/* Grid */
+/* Grid — columns fit to container width */
 .grid {
   display: grid;
   gap: 1rem;
-}
-
-.grid-2 {
-  grid-template-columns: repeat(2, 1fr);
-}
-
-.grid-3 {
-  grid-template-columns: repeat(3, 1fr);
-}
-
-.grid-4 {
-  grid-template-columns: repeat(4, 1fr);
-}
-
-.grid-5 {
-  grid-template-columns: repeat(5, 1fr);
-}
-
-@media (max-width: 1024px) {
-  .grid-4, .grid-5 {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .grid-3 {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 768px) {
-  .grid-2, .grid-3, .grid-4, .grid-5 {
-    grid-template-columns: 1fr;
-  }
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
 }
 
 /* Flex utilities */
@@ -330,20 +300,17 @@ hr {
 .hero h1 {
   font-size: 2.25rem;
   font-weight: bold;
-  max-width: 56rem;
   margin: 0 0 1rem;
 }
 
 .hero h2 {
   font-size: 1.25rem;
-  max-width: 56rem;
   margin: 0 0 1rem;
   font-weight: normal;
 }
 
 .hero p {
   font-size: 1.5rem;
-  max-width: 56rem;
   margin: 0 0 1rem;
 }
 
