@@ -3,15 +3,13 @@ layout: layouts/base.njk
 title: ""
 ---
 
-<div class="hero">
-  <h1>Wichita's community for software developers</h1>
-  <h2><strong>devICT</strong> is a volunteer-run community aiming to <strong>educate, empower, and connect</strong> developers in the <strong>Wichita, KS</strong> area. We welcome all manner of <strong>hackers</strong> and <strong>makers</strong>.</h2>
-</div>
+{% include "hero.html" %}
 
 <hr>
 
-<h2><strong>Open to all</strong>: hobbyists, beginners, and seasoned engineers alike.</h2>
-<p>devICT is a welcoming and knowledgeable community where you can engage, contribute, and grow your skills.</p>
+<h2>Open to all. Hobbyists, beginners, and seasoned engineers alike.</h2>
+<p>We are a welcoming and knowledgeable community where you can connect, learn, and collaborate.</p>
+<p>Knowledge is power. We believe in the open sharing of information for collective and individual empowerment. Get involved to grow your skillsets by learning and building together.</p>
 
 <div class="cta-row">
   <a href="/about/" class="btn">Learn more</a>
@@ -21,7 +19,7 @@ title: ""
 
 <hr>
 
-<h2>Why contribute?</h2>
+<h2>Why get involved?</h2>
 <div class="grid">
   <div class="card">
     <h3>Build Skills</h3>
@@ -37,12 +35,12 @@ title: ""
   </div>
 </div>
 
-<h2>How to contribute?</h2>
+<h2>How can you contribute?</h2>
 <div class="grid">
   <div class="card">
     <h3>Contribute to a Project</h3>
-    <p>Browse our <a href="https://github.com/devict">GitHub organization</a> to find projects you can contribute to. Plenty of ways to help with or without coding.</p>
-    <a href="https://github.com/devict" class="btn">Get Coding</a>
+    <p>Browse our projects on <a href="https://github.com/devict">GitHub</a> and <a href="https://tangled.org/devict.org" title="devICT on Tangled">Tangled</a>, find something to contribute. Plenty of ways to help with or without coding.</p>
+    <a href="https://tangled.org/devict.org" class="btn">Get Coding</a>
   </div>
   <div class="card">
     <h3>Give a Talk or Workshop</h3>
@@ -56,7 +54,9 @@ title: ""
   </div>
 </div>
 
-<h2>In addition to our community members, we are supported by these great local partners.</h2>
+<hr>
+
+<h3>In addition to our members, we are supported by these local partners.</h3>
 
 <div class="sponsors">
   <img src="/img/logos/grooverlabs-bw.png" alt="GrooverLabs">

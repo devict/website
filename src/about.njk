@@ -3,10 +3,7 @@ layout: layouts/base.njk
 title: About
 ---
 
-<div class="hero">
-  <h1>Wichita's community for software developers</h1>
-  <h2><strong>devICT</strong> is a volunteer-run community aiming to <strong>educate, empower, and connect</strong> developers in the <strong>Wichita, KS</strong> area. We welcome all manner of <strong>hackers</strong> and <strong>makers</strong>.</h2>
-</div>
+{% include "hero.html" %}
 
 <hr>
 
@@ -14,7 +11,7 @@ title: About
 
 <p>Instead of focusing on a specific programming language or layer of the stack (frontend, backend, infrastructure), we decided to embrace any and all aspects of software. As a result, we've cultivated a diverse community full of a variety of experiences and perspectives on technology.</p>
 
-<h2>Values</h2>
+<h2>Values and Principles</h2>
 
 <p>Our community is rooted in a few foundational principles that guide our actions and decision making.</p>
 
@@ -29,7 +26,7 @@ title: About
 <p>These positions follow from our principles. They reflect where we stand today and may grow as our community and context evolve.</p>
 
 <ul>
-  <li>People are free to define and express their personal identity. We do not tolerate intolerance.</li>
+  <li>People are free to define and express their personal identity. We do not <a href="https://en.wikipedia.org/wiki/Paradox_of_tolerance" title="Wikipedia: Paradox of tolerance">tolerate intolerance</a>.</li>
   <li>Information should be shared freely. We're all learning and growing together.</li>
   <li>Default to open source, facilitate collaboration. The more the merrier.</li>
   <li>Protect private personal data. Make public data available.</li>

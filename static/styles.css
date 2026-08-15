@@ -70,6 +70,7 @@ main h3 {
 
 main p {
   margin: 0 0 1rem;
+  font-size: 1.1rem;
 }
 
 main ul {
@@ -260,7 +261,12 @@ main a:hover {
   padding: 1.5rem;
 }
 
+.card h3 {
+  font-size: 1.1rem;
+}
+
 .card p {
+  font-size: 0.9rem;
   color: var(--color-gray-700);
 }
 
@@ -269,14 +275,16 @@ main a:hover {
 }
 
 .card .btn {
-  margin-top: 1rem;
+  font-size: 0.9rem;
+  margin-top: 0.7rem;
+  padding: 0.8rem 1rem;
 }
 
 /* Sponsors */
 .sponsors {
   display: flex;
   gap: 2rem;
-  margin-bottom: 2rem;
+  margin: 2rem 0;
 }
 
 .sponsors img {
